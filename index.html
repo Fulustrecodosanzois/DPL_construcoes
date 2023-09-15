@@ -2,76 +2,42 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style_login.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
   <title>DPL COSTRUÇÕES</title>
 </head>
 
 <body class="">
 
-
   <!-- -------------------------------------------- TELA DE LOGIN -->
 
-  <header class="">
-    <section class="vh-100 gradient-custom">
-      <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-            <div class="card fundo text-white" style="border-radius: 1rem;">
-              <div class="card-body p-5 text-center">
-
-                <div class="mb-md-5 mt-md-4 pb-5">
-
-                  <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                  <p class="text-white-50 mb-5">Please enter your login and password!</p>
-
-                  <div class="form-outline form-white mb-4">
-                    <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                    <label class="form-label" for="typeEmailX">Email</label>
-                  </div>
-
-                  <div class="form-outline form-white mb-4">
-                    <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX">Password</label>
-                  </div>
-
-                  <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-
-                </div>
-
-                <div>
-                  <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
-                  </p>
-                </div>
-
-              </div>
-            </div>
-          </div>
+    <main class="form-signin">
+      <form class="text-center">
+        <img class="mb-4" src="image/logo_login.jpeg" alt="" width="82" height="67">
+        <h1 class="h3 mb-4 fw-normal">Acessar</h1>
+    
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="nome@exemplo.com">
+          <label for="floatingInput">Email</label>
         </div>
-      </div>
-    </section>
-
-
-
-  </header>
-
-
-
-
-
-
-
-
-
-
-
-
+        <div class="form-floating mt-4">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="senha">
+          <label for="floatingPassword">Senha</label>
+        </div>
+    
+        <div class="checkbox mb-4">
+          <label>
+            <input type="checkbox" value="remember-me"> Lembrar acesso
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+        <!-- <p class="mt-5 mb-3 text-muted"></p> -->
+      </form>
+    </main>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
