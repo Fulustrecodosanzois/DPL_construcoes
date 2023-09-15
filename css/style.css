@@ -1,0 +1,25 @@
+/**************************** RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ************************** FERRAMENTAS */
+
+.borda {
+    border: 2px solid red;
+}
+
+
+
+/************************ STYLE */
+
+.fundo{
+    background-color: #5C8374;
+}
+
+.fonte {
+    color: coral;
+}
