@@ -14,16 +14,16 @@
 
 /************************ STYLE */
 
-.fundo_verde{
+.fundo_verde {
     background-color: #5C8374;
 }
 
-.fundo_laranja{
+.fundo_laranja {
     background-color: coral;
 }
 
 .fonte {
-    color: coral;
+    color: rgb(129, 129, 129);
 }
 
 .menu_btn {
@@ -51,4 +51,3 @@
 .sombra_texto {
     box-shadow: 1;
 }
-
