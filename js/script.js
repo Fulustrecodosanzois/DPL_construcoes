@@ -1,9 +1,28 @@
-// Função de inicialização
-function initMap() {
-    // Crie um objeto Autocomplete para o campo de input
-    const input = document.getElementById('#local_js');
-    const autocomplete = new google.maps.places.Autocomplete(input);
+// Adicionado o botão de captura
+document.addEventListener('DOMContentLoaded', function() {
+    const cameraInput = document.getElementById('cameraInput');
+    const captureButton = document.getElementById('captureButton');
+    const photo = document.getElementById('photo');
 
-    // Defina o tipo de sugestões (endereços)
-    autocomplete.setTypes(['address']);
-}
+    captureButton.addEventListener('click', function() {
+        cameraInput.click();
+    });
+
+    cameraInput.addEventListener('change', function(event) {
+        const selectedFile = event.target.files[0];
+
+        if (selectedFile) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                photo.src = e.target.result;
+                photo.style.display = 'block';
+            };
+
+            reader.readAsDataURL(selectedFile);
+        }
+    });
+});
+
+
+

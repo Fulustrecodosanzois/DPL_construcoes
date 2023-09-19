@@ -1,0 +1,66 @@
+/**************************** RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.lineParent{
+    height: 100%;
+    width:100%;
+    align-items: center;
+    position:absolute;
+}
+
+.connecting-line {
+    height: 2px;
+    background: #e0e0e0;
+    width: 80%;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.stepTab{
+    width: 20%;
+    text-align: center;
+    z-index: 2;
+    
+}
+
+.square-tab {
+    width: 40px;
+    height: 30px;
+    /*line-height: 45px;*/
+    border-radius: 50px;
+    background: #5C8374;
+    border: 2px solid #e0e0e0;
+    font-size: 15px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.square-tabb {
+    width: 40px;
+    height: 30px;
+    /*line-height: 45px;*/
+    border-radius: 50px;
+    background: coral;
+    border: 2px solid #e0e0e0;
+    font-size: 15px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+@media only screen and (max-width: 576px) {
+  body {
+    background-color: lightblue;
+  }
+}
