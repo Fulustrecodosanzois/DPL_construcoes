@@ -36,7 +36,7 @@
 }
 
 .fonte_menu {
-    font-size: 30px;
+    font-size: 38px;
     font-family: 50px;
 }
 
@@ -49,5 +49,5 @@
 }
 
 .sombra_texto {
-    box-shadow: 1;
+    box-shadow: 5px 5px 15px #818080;
 }
