@@ -57,9 +57,18 @@ function exibirModelo(){
 
 modelo.addEventListener("blur", exibirModelo)
 
+// Validação
+function validarFormulario(){
+
+if (nome.value === '' || equipe.value === ''|| placa.value === '' || modelo.value === ''){
+    return false;
+}
+else{
+    return true
+}
+};
 // LocalStorage
-function salvarDados(evento) {
-    evento.preventDefault()
+function salvarDados() {
     var nome = document.getElementById("nome").value;
     var equipe = document.getElementById("equipe").value
     var placa = document.getElementById("placa").value
@@ -76,4 +85,26 @@ function salvarDados(evento) {
   
   }
   
-  document.getElementById("btnEnviar").addEventListener("click", salvarDados);
+  document.getElementById("btnEnviar").addEventListener("click", (evento)=>{
+    evento.preventDefault()
+    if(validarFormulario()){
+        salvarDados()
+        window.location.href="desligar1.html"
+    }
+    else{
+        alert("Por favor preencha todos os campos.");
+       
+    }
+  });
+
+let item = document.querySelector('#item')
+item.addEventListener('click', ()=>{
+    if(item.checked){
+        alert('sdas')
+        return false
+    }
+    else{
+        alert('dfvdfv')
+        return true
+    }
+})
