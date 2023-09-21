@@ -57,6 +57,20 @@ function exibirModelo(){
 
 modelo.addEventListener("blur", exibirModelo)
 
+let local = document.querySelector(".local")
+
+function exibirLocal(){
+    // console.log(local.value)
+    if(local.value == ""){
+        local.style.border = "1px solid red"
+    }
+    else{
+        local.style.border = "1px solid green"
+    }
+}
+
+local.addEventListener("blur", exibirLocal)
+
 // Validação
 function validarFormulario(){
 
@@ -73,12 +87,14 @@ function salvarDados() {
     var equipe = document.getElementById("equipe").value
     var placa = document.getElementById("placa").value
     var modelo = document.getElementById("modelo").value
+    var local = document.getElementById(".local").value
   
     var dados = {
       nome: nome,
       equipe: equipe,
       placa: placa,
-      modelo: modelo
+      modelo: modelo,
+      local: local
     };
   
     localStorage.setItem("dadosCadastro", JSON.stringify(dados));
