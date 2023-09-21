@@ -26,10 +26,6 @@
     color: rgb(129, 129, 129);
 }
 
-.menu_btn {
-    height: 80vh;
-}
-
 .btn_menu {
     padding: 30px;
 
@@ -51,3 +47,7 @@
 .btn:hover {
     background-color: rgb(170, 169, 169) !important; 
   }
+
+.bloco {
+    height: 70vh;
+}
