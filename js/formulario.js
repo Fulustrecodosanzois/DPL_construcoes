@@ -57,7 +57,7 @@ function exibirModelo(){
 
 modelo.addEventListener("blur", exibirModelo)
 
-let local = document.querySelector(".locall")
+let local = document.querySelector("#local")
 
 function exibirLocal(){
     // console.log(local.value)
@@ -87,7 +87,7 @@ function salvarDados() {
     var equipe = document.getElementById("equipe").value
     var placa = document.getElementById("placa").value
     var modelo = document.getElementById("modelo").value
-    var local = document.getElementById("locall").value
+    var local = document.getElementById("local").value
   
     var dados = {
       nome: nome,
