@@ -74,7 +74,7 @@ local.addEventListener("blur", exibirLocal)
 // Validação
 function validarFormulario(){
 
-if (nome.value === '' || equipe.value === ''|| placa.value === '' || modelo.value === ''){
+if (nome.value === '' || equipe.value === ''|| placa.value === '' || modelo.value === ''|| local.value === ''){
     return false;
 }
 else{
