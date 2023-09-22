@@ -83,12 +83,6 @@ else{
 };
 // LocalStorage
 function salvarDados() {
-    var nome = document.getElementById("nome").value;
-    var equipe = document.getElementById("equipe").value
-    var placa = document.getElementById("placa").value
-    var modelo = document.getElementById("modelo").value
-    var local = document.getElementById("local").value
-  
     var dados = {
       nome: nome,
       equipe: equipe,
@@ -114,14 +108,3 @@ function salvarDados() {
     
   });
 
-let item = document.querySelector('#item')
-item.addEventListener('click', ()=>{
-    if(item.checked){
-        alert('sdas')
-        return false
-    }
-    else{
-        alert('dfvdfv')
-        return true
-    }
-})
