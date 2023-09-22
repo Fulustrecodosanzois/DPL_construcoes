@@ -1,4 +1,3 @@
-
 function handleFileSelect(evt) {
     const file = evt.target.files[0]; 
     const reader = new FileReader();
