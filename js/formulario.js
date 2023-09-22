@@ -1,4 +1,5 @@
 // JavaScript - Formulário
+
 let nome = document.querySelector("#nome")
 
 function exibirNome(){
@@ -14,6 +15,7 @@ function exibirNome(){
 nome.addEventListener("blur", exibirNome)
 
 // Equipe
+
 let equipe = document.querySelector("#equipe")
 
 function exibirEquipe(){
@@ -29,6 +31,7 @@ function exibirEquipe(){
 equipe.addEventListener("blur", exibirEquipe)
 
 // Veículo
+
 let placa = document.querySelector("#placa")
 
 function exibirPlaca(){
@@ -71,7 +74,8 @@ function exibirLocal(){
 
 local.addEventListener("blur", exibirLocal)
 
-// Validação
+// -----------------------------------------Validação
+
 function validarFormulario(){
 
 if (nome.value === '' || equipe.value === ''|| placa.value === '' || modelo.value === ''|| local.value === ''){
@@ -81,7 +85,9 @@ else{
     return true
 }
 };
-// LocalStorage
+
+//------------------------------------ LocalStorage
+
 function salvarDados() {
     var dados = {
       nome: nome,
