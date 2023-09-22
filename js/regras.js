@@ -40,3 +40,4 @@ btnAvancar.addEventListener("click", (evento)=>{
         alert("Confirme para prosseguir.")
     }
 });
+

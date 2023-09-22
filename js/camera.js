@@ -24,16 +24,3 @@ function handleFileSelect(evt) {
     fileInput.click();
   });
   
-
-
-// ------------------ BOTÂO DE CONFIRMAÇÂODAS REGRAS
-
-const btnAvancar = document.getElementById('btnAvancar');
-
-btnAvancar.addEventListener('click', function (event) {
-  event.preventDefault(); 
-
-  alert('O relatório foi enviado com sucesso!');
-
-  window.location.href = '../index.html';
-});
