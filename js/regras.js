@@ -1,5 +1,7 @@
 let btnAvancar = document.querySelector("#btnAvancar")
 let confir = document.querySelector(".confirm")
+
+let relatorio = []
 btnAvancar.addEventListener("click", (evento)=>{
     evento.preventDefault()
     console.log(confir.id)
@@ -29,15 +31,24 @@ btnAvancar.addEventListener("click", (evento)=>{
         }
     }
     if(confir.checked){
-        if(confir.id == "desligar1"){
-            window.location.href="bloquear2.html"
-        }
-        else if(confir.id == "bloquear2"){
-            window.location.href="sinalizar3.html"
+        if(confir.id == "proteger6"){  
+            let resultado = JSON.parse(localStorage.getItem("relatorio"))
+            let dadosTemp = JSON.parse(localStorage.getItem("dadosTemp"))
+            if(resultado == null){
+                relatorio.push(dadosTemp)
+            }
+            else{
+                relatorio = resultado
+                relatorio.push(dadosTemp)
+            }
+            localStorage.setItem("relatorio", JSON.stringify(relatorio))
+            localStorage.removeItem("dadosTemp")
+            alert("Registro Enviado com Sucesso.")
+            window.location.href="../index.html"
         }
     }
     else{
-        alert("Confirme para prosseguir.")
+        alert("Confirme Para Prosseguir.")
     }
 });
 

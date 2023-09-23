@@ -3,7 +3,6 @@
 let nome = document.querySelector("#nome")
 
 function exibirNome(){
-    // console.log(nome.value)
     if(nome.value == ""){
         nome.style.border = "1px solid red"
     }
@@ -19,7 +18,6 @@ nome.addEventListener("blur", exibirNome)
 let equipe = document.querySelector("#equipe")
 
 function exibirEquipe(){
-    // console.log(equipe.value)
     if(equipe.value == ""){
         equipe.style.border = "1px solid red"
     }
@@ -35,7 +33,6 @@ equipe.addEventListener("blur", exibirEquipe)
 let placa = document.querySelector("#placa")
 
 function exibirPlaca(){
-    // console.log(placa.value)
     if(placa.value == ""){
         placa.style.border = "1px solid red"
     }
@@ -49,7 +46,7 @@ placa.addEventListener("blur", exibirPlaca)
 let modelo = document.querySelector("#modelo")
 
 function exibirModelo(){
-    // console.log(modelo.value)
+
     if(modelo.value == ""){
         modelo.style.border = "1px solid red"
     }
@@ -63,7 +60,6 @@ modelo.addEventListener("blur", exibirModelo)
 let local = document.querySelector("#local")
 
 function exibirLocal(){
-    // console.log(local.value)
     if(local.value == ""){
         local.style.border = "1px solid red"
     }
@@ -90,14 +86,14 @@ else{
 
 function salvarDados() {
     var dados = {
-      nome: nome,
-      equipe: equipe,
-      placa: placa,
-      modelo: modelo,
-      local: local
+      nome: nome.value,
+      equipe: equipe.value,
+      placa: placa.value,
+      modelo: modelo.value,
+      local: local.value
     };
-  
-    localStorage.setItem("dadosCadastro", JSON.stringify(dados));
+
+    localStorage.setItem("dadosTemp", JSON.stringify(dados));
   
   }
   
@@ -114,3 +110,4 @@ function salvarDados() {
     
   });
 
+ 
