@@ -1,5 +1,6 @@
 let btnAvancar = document.querySelector("#btnAvancar")
 let confir = document.querySelector(".confirm")
+let cameraInput = document.getElementById("#cameraInput")
 
 let relatorio = []
 btnAvancar.addEventListener("click", (evento)=>{
@@ -8,10 +9,9 @@ btnAvancar.addEventListener("click", (evento)=>{
 
     if(confir.checked){
         if(confir.id == "desligar1"){
-            window.location.href="bloquear2.html"
-        }
-        else if(confir.id == "bloquear2"){
-            window.location.href="sinalizar3.html"
+            window.location.href = "bloquear2.html";
+        } else if (confir.id == "bloquear2") {
+            window.location.href = "sinalizar3.html";
         }
     }
     if(confir.checked){
@@ -52,3 +52,17 @@ btnAvancar.addEventListener("click", (evento)=>{
     }
 });
 
+
+// -----------Código JS para restrição de confirm antes de adicionar imagem
+
+// if(confir.checked){
+//     if(confir.id == "desligar1"){
+//         if (cameraInput.files.length > 0) {
+//             window.location.href = "bloquear2.html";
+//           } else {
+//             alert("Adicione uma imagem para prosseguir.");
+//           }
+//         } else if (confir.id == "bloquear2") {
+//           window.location.href = "sinalizar3.html";
+//         }
+// }
