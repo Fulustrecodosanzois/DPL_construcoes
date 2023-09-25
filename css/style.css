@@ -18,6 +18,10 @@
     background-color: #5C8374;
 }
 
+.fundo_verde3:first-child {
+    background-color: #5C8374;
+}
+
 .fundo_verde2 {
     background-color: #58776c;
 }
@@ -32,7 +36,6 @@
 
 .btn_menu {
     padding: 30px;
-
 }
 
 .fonte_menu {
