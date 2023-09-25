@@ -18,6 +18,10 @@
     background-color: #5C8374;
 }
 
+.fundo_verde2 {
+    background-color: #58776c;
+}
+
 .fundo_laranja {
     background-color: coral;
 }
@@ -50,4 +54,8 @@
 
 .bloco {
     height: 70vh;
+}
+
+.slogan {
+    box-shadow: h-shadow v-shadow blur spread color inset;
 }

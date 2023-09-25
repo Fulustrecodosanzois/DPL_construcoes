@@ -16,25 +16,18 @@
   <!--------------------------------------------- NAVBAR -->
 
   <header>
-    <nav class="navbar py-2 fundo_verde">
-      <div class="container">
-        <a href="index.html" class="navbar-brand mx-auto">
+    <nav class="navbar py-4 fundo_verde text-center flex-column shadow">
+      <div class="">
+        <a href="#" class="mx-auto">
           <img src="image/logo_navbar.jpeg" alt="" class="img-thumbnail" width="50">
         </a>
+        <h5 class="mt-3 text-white slogan">DPL CONSTRUÇÕES LTDA</h5>
       </div>
-      </div>
+
+
     </nav>
 
-    <!------------------------------------------- BARRA DE OPÇÕES-->
 
-    <ul class="nav nav-pills nav-fill fundo_verde shadow">
-      <li class="nav-item border-end">
-        <a class="nav-link text-white fw-medium" aria-current="page" href="#">INÍCIO</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white fw-medium" href="#">SOBRE</a>
-      </li>
-    </ul>
   </header>
 
   <!-- -------------------------------------------- MENU -->
@@ -44,7 +37,8 @@
 
       <div class="d-flex flex-column align-content-center justify-content-center bloco">
         <div class="">
-          <a href="pages/registrar.html" class="btn d-flex align-items-center justify-content-center flex-column fonte_menu fundo_laranja btn_menu text-white fw-bolder sombra_texto"
+          <a href="pages/registrar.html"
+            class="btn d-flex align-items-center justify-content-center flex-column fonte_menu fundo_laranja btn_menu text-white fw-bolder sombra_texto"
             type="button">
             <i class="fa-solid fa-list-ul" style="color: #ffffff;"></i>
             <p>Novo Registro</p>
@@ -62,10 +56,39 @@
     </div>
   </main>
 
-  <footer class="fundo_verde py-4 text-center text-white fixed-bottom">
-    <nav>
-      <h4>DPL CONSTRUÇÕES LTDA</h4>
-    </nav>
+
+  <!------------------------------------------- BARRA DE OPÇÕES-->
+  <div>
+
+  </div>
+
+  <!-- ------------------------------------------ RODAPÉ -->
+
+  <footer class="fundo_verde py-4 text-center">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn fundo_verde2 fw-bolder rounded text-white shadow-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      SOBRE OS DESENVOLVEDORES</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Desenvolvedores</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="list-group list-group-horizontal">
+              <li class="list-group-item">Luciano Silva</li>
+              <li class="list-group-item">monhangtech@gmail.com</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
 
 
