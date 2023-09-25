@@ -51,18 +51,3 @@
 //         alert("Confirme Para Prosseguir.")
 //     }
 // });
-
-
-// -----------Código JS para restrição de confirm antes de adicionar imagem
-
-// if(confir.checked){
-//     if(confir.id == "desligar1"){
-//         if (cameraInput.files.length > 0) {
-//             window.location.href = "bloquear2.html";
-//           } else {
-//             alert("Adicione uma imagem para prosseguir.");
-//           }
-//         } else if (confir.id == "bloquear2") {
-//           window.location.href = "sinalizar3.html";
-//         }
-// }
