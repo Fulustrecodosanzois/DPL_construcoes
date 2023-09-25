@@ -59,3 +59,23 @@
 .slogan {
     box-shadow: h-shadow v-shadow blur spread color inset;
 }
+
+
+/* ******************************  EXIBIR IMAGENS */
+
+#imageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px; 
+  }
+  
+ 
+  #imageContainer img {
+    max-width: 100%; /* Garante que as imagens não excedam a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    border: 1px solid #ccc; /* Adicione uma borda para destacar as imagens */
+  }
+  

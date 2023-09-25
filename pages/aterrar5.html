@@ -93,19 +93,13 @@
         <small class="">Insira o registro fotográfico abaixo.</small>
       </div>
 
-      <input type="file" accept="image/*" capture="camera" id="cameraInput" style="display: none;">
       <button class="btn fundo_verde text-white mb-2" id="captureButton">Abrir Câmera
         <path
           d="M149.1 64.8L138.7 96H64C28.7 96 0 124.7 0 160V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H373.3L362.9 64.8C356.4 45.2 338.1 32 317.4 32H194.6c-20.7 0-39 13.2-45.5 32.8zM256 192a96 96 0 1 1 0 192 96 96 0 1 1 0-192z" />
         </svg>
       </button>
-      <div class="container my-3">
-        <div class="row">
-          <div class="d-flex justify-content-center align-content-center">
-            <img id="photo" src="" alt="Sua foto será exibida aqui."
-              style="display: none; max-width: 70%; height: auto;">
-          </div>
-        </div>
+      <div class="d-flex flex-wrap" id="imageContainer">
+        <img id="photo" src="" alt="Sua foto será exibida aqui." class="d-none img-thumbnail">
       </div>
     </div>
 
