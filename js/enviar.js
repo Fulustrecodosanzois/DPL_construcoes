@@ -10,7 +10,6 @@ document.getElementById('btnAvancar2').addEventListener("click", (evento) => {
     const confirmacaoEnvio = confirm("Tem certeza de que deseja enviar o relatório?");
 
     if (confirmacaoEnvio) {
-      alert("Envio bem-sucedido!");
       if(confir.id == "proteger6"){  
         let resultado = JSON.parse(localStorage.getItem("relatorio"))
         let dadosTemp = JSON.parse(localStorage.getItem("dadosTemp"))
@@ -23,9 +22,10 @@ document.getElementById('btnAvancar2').addEventListener("click", (evento) => {
         }
         localStorage.setItem("relatorio", JSON.stringify(relatorio))
         localStorage.removeItem("dadosTemp")
-        alert("Registro Enviado com Sucesso.")
+        alert("Registro enviado com sucesso!");
         window.location.href="../index.html"
-    }
+        
+    } alert("Registro enviado com sucesso!");
       window.location.href = '../index.html';
     }
   }
