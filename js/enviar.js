@@ -22,7 +22,7 @@ document.getElementById('btnAvancar2').addEventListener("click", (evento) => {
         }
         localStorage.setItem("relatorio", JSON.stringify(relatorio))
         localStorage.removeItem("dadosTemp")
-        alert("Registro enviado com sucesso!");
+        // alert("Registro enviado com sucesso!");
         window.location.href="../index.html"
         
     } alert("Registro enviado com sucesso!");
