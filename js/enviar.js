@@ -34,3 +34,11 @@ document.getElementById('btnAvancar2').addEventListener("click", (evento) => {
   
 });
 
+
+
+
+
+
+
+
+
