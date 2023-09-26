@@ -75,10 +75,8 @@
     margin-top: 30px; 
   }
   
- 
-  #imageContainer img {
+#imageContainer img {
     max-width: 100%; /* Garante que as imagens não excedam a largura do contêiner */
     height: auto; /* Mantém a proporção da imagem */
     border: 1px solid #ccc; /* Adicione uma borda para destacar as imagens */
   }
-  
