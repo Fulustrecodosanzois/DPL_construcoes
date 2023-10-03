@@ -1,46 +1,82 @@
-// Função para criar uma tabela HTML a partir dos dados do relatório
-function criarTabela(relatorio) {
-    // Obtém a referência ao elemento de tabela no HTML
-    const tabela = document.getElementById("tabela");
+// Função para salvar os dados no armazenamento local
+let historicoContainer= document.querySelector("#historico-container")
+function salvarRegistro() {
+
   
-    // Limpa o conteúdo atual da tabela
-    tabela.innerHTML = "";
+  // Cria um objeto com os dados do registro
+ 
+}
+
+// Função para exibir os registros na página de histórico
+function exibirRegistros() {
+  const registros = JSON.parse(localStorage.getItem('relatorio')) || [];
+  // let resultado = JSON.parse(localStorage.getItem("relatorio"))
+        if(registros != null){
+          relatorio = registros
+        }
+        else{
+            relatorio=[]
+        }
+  const dataHora = {
+    data: new Date().toLocaleDateString(),
+    hora: new Date().toLocaleTimeString(),
+  };
+        
   
-    // Cria o cabeçalho da tabela
-    const cabecalho = tabela.createTHead();
-    const linhaCabecalho = cabecalho.insertRow();
-    const colunas = ["Nome", "Equipe", "Placa/Modelo", "Local"];
   
-    for (const coluna of colunas) {
-      const th = document.createElement("th");
-      th.textContent = coluna;
-      linhaCabecalho.appendChild(th);
-    }
-  
-    // Cria o corpo da tabela
-    const corpoTabela = tabela.createTBody();
-  
-    // Preenche a tabela com os dados do relatório
-    for (const registro of relatorio) {
-      const linha = corpoTabela.insertRow();
-      const colunasRegistro = [registro.nome, registro.equipe, registro.placa, registro.modelo, registro.local];
-  
-      for (const valorColuna of colunasRegistro) {
-        const celula = linha.insertCell();
-        celula.textContent = valorColuna;
-      }
-    }
-  }
-  
-  // Função para carregar e exibir o relatório
-  function carregarRelatorio() {
-    const relatorio = JSON.parse(localStorage.getItem("relatorio"));
-  
-    if (relatorio) {
-      criarTabela(relatorio);
-    }
-  }
-  
-  // Evento de carregamento da página
-  window.addEventListener("load", carregarRelatorio);
-  
+  // Itera sobre os registros e os adiciona à tabela
+  relatorio.forEach((registro, index) => {
+    console.log(registro)
+    console.log(dataHora)
+    let div=document.createElement("div")
+    div.classList.add("d-flex" ,"align-content-center", "justify-content-center")
+    div.innerHTML=`
+    <div class="col-11 sha">
+    <div class="container mb-2 py-4 shadow rounded-4">
+      <div>
+        <table class="table">
+          <tbody>
+            <tr>
+            <th scope="row">${index + 1}</th>
+              <th scope="row">Nome:</th>
+              <td>${registro.nome}</td>
+            </tr>
+            <tr>
+              <th scope="row">Equipe:</th>
+              <td>${registro.equipe}</td>
+            </tr>
+            <tr>
+              <th scope="row">Placa/Modelo:</th>
+              <td colspan="2">${registro.placa}</td>
+            </tr>
+            <tr>
+              <th scope="row">Endereço:</th>
+              <td colspan="2">${registro.local}</td>
+            </tr>
+            <tr class="">
+              <td colspan="1" class="text-center bg-body-secondary">${dataHora.data}</td>
+              <td colspan="1" class="text-center bg-body-secondary">${dataHora.hora}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  `
+  historicoContainer.appendChild(div)
+  });
+}
+
+// Evento de clique no botão "Avançar" da página "registrar.html"
+const btnEnviar = document.getElementById('btnEnviar');
+if (btnEnviar) {
+  btnEnviar.addEventListener('click', () => {
+    salvarRegistro();
+    window.location.href = 'desligar1.html'; // Redireciona para a página de histórico após o envio
+  });
+}
+
+// Evento de carregamento da página "historico.html"
+if (window.location.pathname.includes('historico.html')) {
+  exibirRegistros();
+}
