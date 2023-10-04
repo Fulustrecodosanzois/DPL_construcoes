@@ -31,7 +31,7 @@ function exibirRegistros() {
     
     <div class="col-10 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center">
       <div class="px-3">
-        <table class=" table px-4">
+        <table class="table px-4 col-10">
           <tbody>
             <tr class="">
               <th scope="row" class="bg-body-secondary rounded-start">Registro N°:</th>
