@@ -35,7 +35,7 @@ function exibirRegistros() {
           <tbody>
             <tr class="">
               <th scope="row" class="bg-body-secondary rounded-start">Registro N°:</th>
-              <td class="text-end bg-body-secondary rounded-end" colspan="2">${index < 9 ? '00' : ''}${index >= 10 ? '0' : ''}${index > 99 ? '' : ''}${index + 1}</td>
+              <td class="text-end bg-body-secondary rounded-end" colspan="2">${index < 9 ? '00' : ''}${index > 10 ? '0' : ''}${index > 99 ? '' : ''}${index + 1}</td>
             </tr>
             <tr class="">
               <th scope="row">Nome:</th>
