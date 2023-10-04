@@ -28,8 +28,8 @@ function exibirRegistros() {
     let div = document.createElement("div")
     div.classList.add("d-flex", "align-content-center", "justify-content-center",)
     div.innerHTML = `
-    <div class="col-11 mt-4">
-    <div class="py-3 shadow rounded-4 d-flex justify-content-center align-content-center">
+    <div class="mt-4">
+    <div class=" col-sm-12 py-3 shadow rounded-4 d-flex justify-content-center align-content-center">
       <div class="px-3">
         <table class=" table px-4">
           <tbody>
