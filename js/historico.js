@@ -9,6 +9,21 @@ function salvarRegistro() {
 
 }
 
+// function atualizarData() {
+//   let dataAtual= new Date();
+//   let dataFormatada = dataAtual.toLocaleDateString();
+//   elementoData.textContent = dataFormatada;
+
+//   atualizarData();
+//   setInterval(atualizarData,1000);
+
+//   let tabelaVetor = JSON.parse(localStorage.getItem("relatorio"))
+
+//   if(tabelaVetor != null) {
+//     let corpo = document.getElementById("")
+//   }
+// }
+
 function exibirRegistros() {
   const registros = JSON.parse(localStorage.getItem('relatorio')) || [];
   if (registros != null) {
@@ -27,8 +42,7 @@ function exibirRegistros() {
     console.log(dataHora)
     let div = document.createElement("div")
     div.classList.add("d-flex", "align-content-center", "justify-content-center",)
-    div.innerHTML = `
-    
+    div.innerHTML = ` 
     <div class="col-10 col-lg-6 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center">
       <div class="px-3">
         <table class="table px-4 ">
