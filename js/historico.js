@@ -29,9 +29,9 @@ function exibirRegistros() {
     div.classList.add("d-flex", "align-content-center", "justify-content-center",)
     div.innerHTML = `
     
-    <div class="col-10 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center">
+    <div class="col-10 col-lg-6 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center">
       <div class="px-3">
-        <table class="table px-4 col-10">
+        <table class="table px-4 ">
           <tbody>
             <tr class="">
               <th scope="row" class="bg-body-secondary rounded-start">Registro N°:</th>
