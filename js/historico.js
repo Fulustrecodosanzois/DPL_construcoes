@@ -1,45 +1,49 @@
 // Função para salvar os dados no armazenamento local
-let historicoContainer= document.querySelector("#historico-container")
+let historicoContainer = document.querySelector("#historico-container")
 function salvarRegistro() {
 
-  
+
   // Cria um objeto com os dados do registro
- 
+
 }
 
 // Função para exibir os registros na página de histórico
 function exibirRegistros() {
   const registros = JSON.parse(localStorage.getItem('relatorio')) || [];
   // let resultado = JSON.parse(localStorage.getItem("relatorio"))
-        if(registros != null){
-          relatorio = registros
-        }
-        else{
-            relatorio=[]
-        }
+  if (registros != null) {
+    relatorio = registros
+  }
+  else {
+    relatorio = []
+  }
   const dataHora = {
     data: new Date().toLocaleDateString(),
     hora: new Date().toLocaleTimeString(),
   };
-        
-  
-  
+
+
+
   // Itera sobre os registros e os adiciona à tabela
   relatorio.forEach((registro, index) => {
     console.log(registro)
     console.log(dataHora)
-    let div=document.createElement("div")
-    div.classList.add("d-flex" ,"align-content-center", "justify-content-center")
-    div.innerHTML=`
+    let div = document.createElement("div")
+    div.classList.add("d-flex", "align-content-center", "justify-content-center")
+    div.innerHTML = `
     <div class="col-11 sha">
     <div class="container mb-2 py-4 shadow rounded-4">
       <div>
         <table class="table">
           <tbody>
             <tr>
-            <th scope="row">${index + 1}</th>
+              <th scope="row">Registro N°:</th>
+              <td>${index + 1}</td>
+            </tr>
+            <tr>
               <th scope="row">Nome:</th>
               <td>${registro.nome}</td>
+              <th scope="row"></th>
             </tr>
             <tr>
               <th scope="row">Equipe:</th>
@@ -47,11 +51,11 @@ function exibirRegistros() {
             </tr>
             <tr>
               <th scope="row">Placa/Modelo:</th>
-              <td colspan="2">${registro.placa}</td>
+              <td colspan="1">${registro.placa} / ${registro.modelo}</td>
             </tr>
             <tr>
               <th scope="row">Endereço:</th>
-              <td colspan="2">${registro.local}</td>
+              <td colspan="1">${registro.local}</td>
             </tr>
             <tr class="">
               <td colspan="1" class="text-center bg-body-secondary">${dataHora.data}</td>
@@ -63,7 +67,7 @@ function exibirRegistros() {
     </div>
   </div>
   `
-  historicoContainer.appendChild(div)
+    historicoContainer.appendChild(div)
   });
 }
 
