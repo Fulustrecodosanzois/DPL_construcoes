@@ -94,7 +94,6 @@ function salvarDados() {
     };
 
     localStorage.setItem("dadosTemp", JSON.stringify(dados));
-  
   }
   
   document.getElementById("btnEnviar").addEventListener("click", (evento)=>{
@@ -105,7 +104,6 @@ function salvarDados() {
     }
     else{
         alert("Por favor preencha todos os campos.");
-       
     }
     
   });
