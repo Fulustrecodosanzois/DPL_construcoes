@@ -1,11 +1,8 @@
 let historicoContainer = document.querySelector("#historico-container")
-// function salvarRegistro() {
+function salvarRegistro() {
   
 
-// }
-
-
-
+}
 
 
 function exibirRegistros() {
