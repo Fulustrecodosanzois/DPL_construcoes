@@ -4,7 +4,6 @@ function salvarRegistro() {
 
 }
 
-
 function exibirRegistros() {
   const registros = JSON.parse(localStorage.getItem('relatorio')) || [];
   if (registros != null) {
@@ -22,37 +21,37 @@ function exibirRegistros() {
     console.log(registro)
     console.log(dataHora)
     let div = document.createElement("div")
-    div.classList.add("d-flex", "align-content-center", "justify-content-center")
+    div.classList.add("d-flex", "align-content-center", "justify-content-center",)
     div.innerHTML = `
     <div class="col-11 mt-4">
-    <div class="container mb-2 py-4 shadow rounded-4">
-      <div>
-        <table class="table">
+    <div class="py-3 shadow rounded-4 d-flex justify-content-center align-content-center">
+      <div class="px-3">
+        <table class=" table px-4">
           <tbody>
-            <tr>
-              <th scope="row">Registro N°:</th>
-              <td>${index + 1}</td>
+            <tr class="">
+              <th scope="row" class="bg-body-secondary rounded-start">Registro N°:</th>
+              <td class="text-end bg-body-secondary rounded-end" colspan="2">${index < 99 ? '00' : ''}${index + 1}</td>
             </tr>
-            <tr>
+            <tr class="">
               <th scope="row">Nome:</th>
-              <td>${registro.nome}</td>
-              <th scope="row"></th>
+              <td class="text-end" colspan="2">${registro.nome}</td>
+              
             </tr>
             <tr>
               <th scope="row">Equipe:</th>
-              <td>${registro.equipe}</td>
+              <td class="text-end" colspan="2">${registro.equipe}</td>
             </tr>
             <tr>
-              <th scope="row">Placa/Modelo:</th>
-              <td colspan="1">${registro.placa} / ${registro.modelo}</td>
+              <th scope="row" colspan="1">Placa/Modelo:</th>
+              <td colspan=23" class="text-end">${registro.placa} / ${registro.modelo}</td>
             </tr>
             <tr>
               <th scope="row">Endereço:</th>
-              <td colspan="1">${registro.local}</td>
+              <td colspan="2" class="text-end">${registro.local}</td>
             </tr>
             <tr class="">
-              <td colspan="1" class="text-center bg-body-secondary">${dataHora.data}</td>
-              <td colspan="1" class="text-center bg-body-secondary">${dataHora.hora}</td>
+              <td colspan="2" class="bg-body-tertiary">${dataHora.data}</td>
+              <td colspan="2" class="bg-body-tertiary text-end">${dataHora.hora}</td>
             </tr>
           </tbody>
         </table>

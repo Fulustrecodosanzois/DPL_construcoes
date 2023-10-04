@@ -45,26 +45,26 @@
           </div>
           <div class="input-group mt-3">
             <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Nome</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
+            <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default" id="nome">
           </div>
           <small class="fonte ">* Nome do responsável pela equipe.</small>
           <div class="input-group mt-3">
             <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Equipe</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
+            <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default" id="equipe">
           </div>
           <small class="fonte">* Número ou nome da equipe.</small>
           <div class="input-group mt-3">
             <span class="input-group-text fonte fw-bolder">Placa / Modelo</span>
-            <input type="text" aria-label="First name" class="form-control border-end" id="placa">
-            <input type="text" aria-label="Last name" class="form-control" id="modelo">
+            <input type="text" aria-label="First name" class="form-control border-end" maxlength="7" id="placa" oninput="this.value = this.value.toUpperCase()">
+            <input type="text" aria-label="Last name" class="form-control" id="modelo" maxlength="33" oninput="this.value = this.value.toUpperCase()">
           </div>
           <small class="fonte">* Digite a placa e o modelo do veículo <span class="fw-bolder">(Nesta
               ordem)</span>.</small>
           <div class="input-group mt-3">
             <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Endereço</span>
-            <input type="text" class="form-control" aria-label="Sizing example input"
+            <input type="text" class="form-control" maxlength="69" aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default" id="local">
           </div>
 
