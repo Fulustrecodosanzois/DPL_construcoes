@@ -2,11 +2,11 @@
 
 let nome = document.querySelector("#nome")
 
-function exibirNome(){
-    if(nome.value == ""){
+function exibirNome() {
+    if (nome.value == "") {
         nome.style.border = "1px solid red"
     }
-    else{
+    else {
         nome.style.border = "1px solid green"
     }
 }
@@ -17,11 +17,11 @@ nome.addEventListener("blur", exibirNome)
 
 let equipe = document.querySelector("#equipe")
 
-function exibirEquipe(){
-    if(equipe.value == ""){
+function exibirEquipe() {
+    if (equipe.value == "") {
         equipe.style.border = "1px solid red"
     }
-    else{
+    else {
         equipe.style.border = "1px solid green"
     }
 }
@@ -32,11 +32,11 @@ equipe.addEventListener("blur", exibirEquipe)
 
 let placa = document.querySelector("#placa")
 
-function exibirPlaca(){
-    if(placa.value == ""){
+function exibirPlaca() {
+    if (placa.value == "") {
         placa.style.border = "1px solid red"
     }
-    else{
+    else {
         placa.style.border = "1px solid green"
     }
 }
@@ -45,12 +45,12 @@ placa.addEventListener("blur", exibirPlaca)
 
 let modelo = document.querySelector("#modelo")
 
-function exibirModelo(){
+function exibirModelo() {
 
-    if(modelo.value == ""){
+    if (modelo.value == "") {
         modelo.style.border = "1px solid red"
     }
-    else{
+    else {
         modelo.style.border = "1px solid green"
     }
 }
@@ -59,11 +59,11 @@ modelo.addEventListener("blur", exibirModelo)
 
 let local = document.querySelector("#local")
 
-function exibirLocal(){
-    if(local.value == ""){
+function exibirLocal() {
+    if (local.value == "") {
         local.style.border = "1px solid red"
     }
-    else{
+    else {
         local.style.border = "1px solid green"
     }
 }
@@ -72,40 +72,40 @@ local.addEventListener("blur", exibirLocal)
 
 // -----------------------------------------Validação
 
-function validarFormulario(){
+function validarFormulario() {
 
-if (nome.value === '' || equipe.value === ''|| placa.value === '' || modelo.value === ''|| local.value === ''){
-    return false;
-}
-else{
-    return true
-}
+    if (nome.value === '' || equipe.value === '' || placa.value === '' || modelo.value === '' || local.value === '') {
+        return false;
+    }
+    else {
+        return true
+    }
 };
 
 //------------------------------------ LocalStorage
 
 function salvarDados() {
     var dados = {
-      nome: nome.value,
-      equipe: equipe.value,
-      placa: placa.value,
-      modelo: modelo.value,
-      local: local.value
+        nome: nome.value,
+        equipe: equipe.value,
+        placa: placa.value,
+        modelo: modelo.value,
+        local: local.value,
+        data: new Date().toLocaleDateString(),
+        hora: new Date().toLocaleTimeString()
     };
-
     localStorage.setItem("dadosTemp", JSON.stringify(dados));
-  }
-  
-  document.getElementById("btnEnviar").addEventListener("click", (evento)=>{
+}
+
+document.getElementById("btnEnviar").addEventListener("click", (evento) => {
     evento.preventDefault()
-    if(validarFormulario()){
+    if (validarFormulario()) {
         salvarDados()
-        window.location.href="desligar1.html"
+        window.location.href = "desligar1.html"
     }
-    else{
+    else {
         alert("Por favor preencha todos os campos.");
     }
-    
-  });
 
- 
+});
+

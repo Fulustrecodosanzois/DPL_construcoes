@@ -9,20 +9,20 @@ function salvarRegistro() {
 
 }
 
-// function atualizarData() {
-//   let dataAtual= new Date();
-//   let dataFormatada = dataAtual.toLocaleDateString();
-//   elementoData.textContent = dataFormatada;
+function atualizarData() {
+  let dataAtual= new Date();
+  let dataFormatada = dataAtual.toLocaleDateString();
+  elementoData.textContent = dataFormatada;
 
-//   atualizarData();
-//   setInterval(atualizarData,1000);
+  atualizarData();
+  setInterval(atualizarData,1000);
 
-//   let tabelaVetor = JSON.parse(localStorage.getItem("relatorio"))
+  let tabelaVetor = JSON.parse(localStorage.getItem("relatorio"))
 
-//   if(tabelaVetor != null) {
-//     let corpo = document.getElementById("")
-//   }
-// }
+  if(tabelaVetor != null) {
+    let corpo = document.getElementById("")
+  }
+}
 
 function exibirRegistros() {
   const registros = JSON.parse(localStorage.getItem('relatorio')) || [];
@@ -32,14 +32,13 @@ function exibirRegistros() {
   else {
     // relatorio = []
   }
-  const dataHora = {
-    data: new Date().toLocaleDateString(),
-    hora: new Date().toLocaleTimeString(),
-  };
+  // const dataHora = {
+  //   data: new Date().toLocaleDateString(),
+  //   hora: new Date().toLocaleTimeString(),
+  // };
 
   relatorio.forEach((registro, index) => {
     console.log(registro)
-    console.log(dataHora)
     let div = document.createElement("div")
     div.classList.add("d-flex", "align-content-center", "justify-content-center",)
     div.innerHTML = ` 
@@ -69,8 +68,8 @@ function exibirRegistros() {
               <td colspan="2" class="text-end">${registro.local}</td>
             </tr>
             <tr class="">
-              <td colspan="2" class="bg-body-tertiary">${dataHora.data}</td>
-              <td colspan="2" class="bg-body-tertiary text-end">${dataHora.hora}</td>
+              <td colspan="2" class="bg-body-tertiary">${registro.data}</td>
+              <td colspan="2" class="bg-body-tertiary text-end">${registro.hora}</td>
             </tr>
           </tbody>
         </table>
@@ -92,7 +91,7 @@ if (btnEnviar) {
 if (window.location.pathname.includes('historico.html')) {
   exibirRegistros();
 }
-exibirRegistros()
+
 
 
 
