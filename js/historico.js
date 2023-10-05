@@ -91,6 +91,7 @@ if (btnEnviar) {
 if (window.location.pathname.includes('historico.html')) {
   exibirRegistros();
 }
+exibirRegistros()
 
 
 
