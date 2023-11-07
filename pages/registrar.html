@@ -19,7 +19,7 @@
     <nav class="navbar py-4 fundo_verde">
       <div class="container">
         <a href="#" class="navbar-brand mx-auto">
-          <img src="../image/logo_navbar.jpeg" alt="" class="img-thumbnail" width="50">
+          <img src="../image/logo_navbar.jpeg" alt="" class="img-thumbnail" width="100">
         </a>
       </div>
     </nav>
@@ -43,141 +43,192 @@
           <div class="mb-3 text_center">
             <h2 class="text-center fonte">Preencha Atentamente</h2>
           </div>
+
           <div class="input-group mt-3">
-            <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Nome</span>
+            <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Líder</span>
+            <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default" id="nome">
+            <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Matrícula</span>
             <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default" id="nome">
           </div>
-          <small class="fonte ">* Nome do responsável pela equipe.</small>
+          <small class="fonte ">* Nome do responsável pela equipe e sua matrícula.</small>
+
+          <!-- -------------------------------------------------------------  MATRÍCULA DA EQUIPE -->
+
+          <div class="mt-3">
+            <div class="d-flex justify-content-center align-items-center">
+              <p class="d-inline-flex gap-1">
+                <a class="btn fundo_verde3 text-white fw-bolder" data-bs-toggle="collapse" href="#collapseExample"
+                  role="button" aria-expanded="false" aria-controls="collapseExample">Matrícula Da Equipe</a>
+              </p>
+            </div>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body fundo_verde">
+                <div>
+                  <div class="input-group mt-3">
+                    <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">1°</span>
+                    <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default" id="nome">
+                    <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">2°</span>
+                    <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default" id="nome">
+                  </div>
+                  <div class="input-group mt-3">
+                    <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">3°</span>
+                    <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default" id="nome">
+                    <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">4°</span>
+                    <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default" id="nome">
+                  </div>
+                  <div class="input-group mt-3">
+                    <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">5°</span>
+                    <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default" id="nome">
+                    <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">6°</span>
+                    <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-default" id="nome">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="input-group mt-3">
+            <span class="input-group-text fonte fw-bolder">Placa</span>
+            <input type="text" aria-label="Last name" class="form-control" id="modelo" maxlength="33"
+              oninput="this.value = this.value.toUpperCase()">
             <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Equipe</span>
             <input type="text" class="form-control" maxlength="33" aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default" id="equipe">
-          </div>
-          <small class="fonte">* Número ou nome da equipe.</small>
+          </div> <small class="fonte">*Informe a placa e o nome da equipe.</small>
+
+
           <div class="input-group mt-3">
-            <span class="input-group-text fonte fw-bolder">Placa / Modelo</span>
-            <input type="text" aria-label="First name" class="form-control border-end" maxlength="7" id="placa" oninput="this.value = this.value.toUpperCase()">
-            <input type="text" aria-label="Last name" class="form-control" id="modelo" maxlength="33" oninput="this.value = this.value.toUpperCase()">
-          </div>
-          <small class="fonte">* Digite a placa e o modelo do veículo <span class="fw-bolder">(Nesta
-              ordem)</span>.</small>
-          <div class="input-group mt-3">
-            <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Endereço</span>
+            <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">N° Ordem De Serviço</span>
             <input type="text" class="form-control" maxlength="69" aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default" id="local">
           </div>
 
-        </div>
-      </div>
 
-      <!-------------------------------------------------------- INFORMATIVO -->
-
-      <!----------------------------------------- Modal -->
-
-      <div>
-        <div class="container mt-4 text-center">
-          <a type="button" class="btn bg-secondary text-white fw-bolder" data-bs-toggle="modal"
-            data-bs-target="#meuModal">
-            Ver Informativo
-          </a>
         </div>
 
-        <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="meuModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content fundo_laranja text-white">
-              <div class="modal-header">
-                <h3 class="modal-title" id="meuModalLabel">Leia Atentamente</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-              </div>
-              <div class="modal-body">
+        <!-------------------------------------------------------- INFORMATIVO -->
 
-                <!-- --------------------------------------- CONTEÚDO DO MODAL-->
+        <!----------------------------------------- MODAL -->
 
-                <div class="mb-5 mt-3">
-                  <div class="container col-11 mb-5">
+        <div>
+          <div class="container mt-4 text-center">
+            <a type="button" class="btn bg-secondary text-white fw-bolder" data-bs-toggle="modal"
+              data-bs-target="#meuModal">
+              Ver Informativo
+            </a>
+          </div>
 
-                    <div class="row">
-                      <div class="col-md-11 lead">
-                        <h3>EPI para Alta Tensão:</h3>
-                        <ul>
-                          <li><strong>Capacete de Segurança:</strong> Use um capacete adequado para proteção contra
-                            impactos e
-                            choques elétricos. Certifique-se de que está devidamente ajustado à sua cabeça.</li>
-                          <li><strong>Óculos de Proteção:</strong> Utilize óculos de proteção para evitar lesões nos
-                            olhos
-                            causadas por faíscas e respingos. Certifique-se de que os óculos se ajustem corretamente ao
-                            rosto.
-                          </li>
-                          <li><strong>Luvas Isolantes:</strong> Use luvas isolantes de acordo com a classe de tensão
-                            para proteger
-                            as mãos contra choques elétricos. Verifique regularmente a integridade das luvas antes de
-                            usá-las.
-                          </li>
-                          <li><strong>Roupa de Proteção:</strong> Vista um macacão de proteção para evitar contato com
-                            partes
-                            energizadas. Certifique-se de que a roupa esteja limpa e em boas condições.</li>
-                          <li><strong>Botas Isolantes:</strong> Calce botas isolantes adequadas para proteção contra
-                            choques
-                            elétricos. Mantenha as botas secas e limpas para garantir sua eficácia.</li>
-                        </ul>
+          <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="meuModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content fundo_laranja text-white">
+                <div class="modal-header">
+                  <h3 class="modal-title" id="meuModalLabel">Leia Atentamente</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+
+                  <!-- --------------------------------------- CONTEÚDO DO MODAL-->
+
+                  <div class="mb-5 mt-3">
+                    <div class="container col-11 mb-5">
+
+                      <div class="row">
+                        <div class="col-md-11 lead">
+                          <h3>EPI para Alta Tensão:</h3>
+                          <ul>
+                            <li><strong>Capacete de Segurança:</strong> Use um capacete adequado para proteção contra
+                              impactos e
+                              choques elétricos. Certifique-se de que está devidamente ajustado à sua cabeça.</li>
+                            <li><strong>Óculos de Proteção:</strong> Utilize óculos de proteção para evitar lesões nos
+                              olhos
+                              causadas por faíscas e respingos. Certifique-se de que os óculos se ajustem corretamente
+                              ao
+                              rosto.
+                            </li>
+                            <li><strong>Luvas Isolantes:</strong> Use luvas isolantes de acordo com a classe de tensão
+                              para proteger
+                              as mãos contra choques elétricos. Verifique regularmente a integridade das luvas antes de
+                              usá-las.
+                            </li>
+                            <li><strong>Roupa de Proteção:</strong> Vista um macacão de proteção para evitar contato com
+                              partes
+                              energizadas. Certifique-se de que a roupa esteja limpa e em boas condições.</li>
+                            <li><strong>Botas Isolantes:</strong> Calce botas isolantes adequadas para proteção contra
+                              choques
+                              elétricos. Mantenha as botas secas e limpas para garantir sua eficácia.</li>
+                          </ul>
+                        </div>
+                        <div class="col-md-11">
+                          <h2>EPI para Baixa Tensão:</h2>
+                          <ul>
+                            <li><strong>Capacete de Segurança:</strong> Utilize um capacete para proteção contra quedas
+                              de
+                              objetos e
+                              golpes. Verifique se o capacete está devidamente ajustado.</li>
+                            <li><strong>Óculos de Proteção:</strong> Mantenha óculos de proteção para prevenir lesões
+                              nos
+                              olhos.
+                              Certifique-se de que estão em boas condições.</li>
+                            <li><strong>Luvas de Proteção:</strong> Use luvas resistentes a cortes e abrasões para
+                              proteger as mãos.
+                              Substitua luvas danificadas imediatamente.</li>
+                            <li><strong>Roupa de Proteção:</strong> Vista roupas adequadas para proteção contra sujeira
+                              e
+                              respingos.
+                              Evite roupas largas que possam ficar presas em equipamentos.</li>
+                          </ul>
+                        </div>
                       </div>
-                      <div class="col-md-11">
-                        <h2>EPI para Baixa Tensão:</h2>
-                        <ul>
-                          <li><strong>Capacete de Segurança:</strong> Utilize um capacete para proteção contra quedas de
-                            objetos e
-                            golpes. Verifique se o capacete está devidamente ajustado.</li>
-                          <li><strong>Óculos de Proteção:</strong> Mantenha óculos de proteção para prevenir lesões nos
-                            olhos.
-                            Certifique-se de que estão em boas condições.</li>
-                          <li><strong>Luvas de Proteção:</strong> Use luvas resistentes a cortes e abrasões para
-                            proteger as mãos.
-                            Substitua luvas danificadas imediatamente.</li>
-                          <li><strong>Roupa de Proteção:</strong> Vista roupas adequadas para proteção contra sujeira e
-                            respingos.
-                            Evite roupas largas que possam ficar presas em equipamentos.</li>
-                        </ul>
-                      </div>
-                    </div>
 
-                    <div class="">
-                      <h2>Dicas de Segurança Fundamentais:</h2>
-                      <ol>
-                        <li><strong>Desenergização:</strong> Sempre que possível, desenergize o circuito antes de
-                          realizar
-                          qualquer trabalho elétrico.</li>
-                        <li><strong>Bloqueio e Etiquetagem:</strong> Utilize procedimentos de bloqueio e etiquetagem
-                          para garantir
-                          que ninguém ligue o circuito enquanto você trabalha.</li>
-                        <li><strong>Treinamento:</strong> Certifique-se de que você e sua equipe tenham treinamento
-                          adequado em
-                          segurança elétrica.</li>
-                        <li><strong>Ferramentas Isoladas:</strong> Use ferramentas isoladas ao trabalhar em sistemas
-                          energizados.
-                        </li>
-                        <li><strong>Inspeção Regular:</strong> Verifique seus EPI antes de cada uso para garantir que
-                          estejam em
-                          boas condições.</li>
-                        <li><strong>Comunicação:</strong> Mantenha comunicação constante com sua equipe para garantir a
-                          segurança
-                          de todos.</li>
-                        <li><strong>Primeiros Socorros:</strong> Conheça os procedimentos de primeiros socorros em caso
-                          de
-                          acidentes elétricos.</li>
-                        <li><strong>Atenção ao Clima:</strong> Esteja atento às condições climáticas, especialmente durante chuvas, para evitar acidentes com água e eletricidade.</li>
-                      </ol>
+                      <div class="">
+                        <h2>Dicas de Segurança Fundamentais:</h2>
+                        <ol>
+                          <li><strong>Desenergização:</strong> Sempre que possível, desenergize o circuito antes de
+                            realizar
+                            qualquer trabalho elétrico.</li>
+                          <li><strong>Bloqueio e Etiquetagem:</strong> Utilize procedimentos de bloqueio e etiquetagem
+                            para garantir
+                            que ninguém ligue o circuito enquanto você trabalha.</li>
+                          <li><strong>Treinamento:</strong> Certifique-se de que você e sua equipe tenham treinamento
+                            adequado em
+                            segurança elétrica.</li>
+                          <li><strong>Ferramentas Isoladas:</strong> Use ferramentas isoladas ao trabalhar em sistemas
+                            energizados.
+                          </li>
+                          <li><strong>Inspeção Regular:</strong> Verifique seus EPI antes de cada uso para garantir que
+                            estejam em
+                            boas condições.</li>
+                          <li><strong>Comunicação:</strong> Mantenha comunicação constante com sua equipe para garantir
+                            a
+                            segurança
+                            de todos.</li>
+                          <li><strong>Primeiros Socorros:</strong> Conheça os procedimentos de primeiros socorros em
+                            caso
+                            de
+                            acidentes elétricos.</li>
+                          <li><strong>Atenção ao Clima:</strong> Esteja atento às condições climáticas, especialmente
+                            durante chuvas, para evitar acidentes com água e eletricidade.</li>
+                        </ol>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <a type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="item">Fechar</a>
+                <div class="modal-footer">
+                  <a type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="item">Fechar</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </form>
 
     <div class="text-center my-4 mb-5">
