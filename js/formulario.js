@@ -106,12 +106,28 @@ function exibirEquipe() {
 
 equipe.addEventListener("blur", exibirEquipe)
 
-// -----------------------------------------Validação
+
+//  -------------------------- ORDEM DE SERVIÇO
+
+let ordemServico = document.querySelector("#ordemServico")
+
+function exibirOrdemServico() {
+    if (ordemServico.value == "") {
+        ordemServico.style.border = "1px solid red"
+    }
+    else {
+        ordemServico.style.border = "1px solid green"
+    }
+}
+
+ordemServico.addEventListener("blur", exibirOrdemServico)
+
+// ------------------------------  Validação
 
 function validarFormulario() {
     const matricula1 = document.querySelector("#matricula1")
 
-    if (lider.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
+    if (lider.value === '' || ordemServico.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
         return false;
     }
     else {
