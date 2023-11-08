@@ -51,7 +51,7 @@ function exibirMatriculas(event) {
     if (input.value == "") {
         input.style.border = "1px solid red";
     } else {
-        input.style.border = "1px solid green";
+        input.style.border = "2px solid green";
     }
 }
 
@@ -91,7 +91,7 @@ function exibirPlaca() {
 
 placa.addEventListener("blur", exibirPlaca)
 
-// EQUIPE
+// ------------------------------ EQUIPE
 
 let equipe = document.querySelector("#equipe")
 
@@ -121,6 +121,27 @@ function exibirOrdemServico() {
 }
 
 ordemServico.addEventListener("blur", exibirOrdemServico)
+
+// ------------------------------ INFORMATIVO
+
+// function validarInformativo(){
+//     if (lider.value === '' ){
+//         return false;
+//     }
+//     else{
+//         return true
+//     }
+// }
+
+// document.getElementById("informativo").addEventListener("click", (evento) => {
+//     evento.preventDefault()
+//     if (validarInformativo()) {
+//     }
+//     else {
+       
+//     }
+
+// });
 
 // ------------------------------  Validação
 
@@ -159,6 +180,5 @@ document.getElementById("btnEnviar").addEventListener("click", (evento) => {
     else {
         alert("Por favor preencha todos os campos.");
     }
-
 });
 
