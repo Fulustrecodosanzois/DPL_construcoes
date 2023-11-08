@@ -148,6 +148,7 @@ function salvarDados() {
         ordemServico: ordemServico.value,
         matricula1: matricula1.value,
         matriculaLider: matriculaLider.value,
+        matriculas: matriculas.value,
         data: new Date().toLocaleDateString(),
         hora: new Date().toLocaleTimeString()
     };
