@@ -19,18 +19,20 @@ lider.addEventListener("blur", exibirLider)
 
 // -------------------------MATRÍCULA LIDER
 
-let matriculaLider = document.querySelector("#matriculaLider")
+// let matriculaLider = document.querySelector("#matriculaLider")
 
-function exibirmatriculaLider() {
-    if (matriculaLider.value == "") {
-        matriculaLider.style.border = "1px solid red"
-    }
-    else {
-        matriculaLider.style.border = "1px solid green"
-    }
-}
+// function exibirmatriculaLider() {
+//     if (matriculaLider.value == "") {
+//         matriculaLider.style.border = "1px solid red"
+//     }
+//     else {
+//         matriculaLider.style.border = "1px solid green"
+//     }
 
-matriculaLider.addEventListener("blur", exibirmatriculaLider)
+   
+// }
+
+// matriculaLider.addEventListener("blur", exibirmatriculaLider)
 
 
 
@@ -42,7 +44,8 @@ const matriculas = [
     document.querySelector("#matricula3"),
     document.querySelector("#matricula4"),
     document.querySelector("#matricula5"),
-    document.querySelector("#matricula6")
+    document.querySelector("#matricula6"),
+    document.querySelector("#matriculaLider")
 ];
 
 function exibirMatriculas(event) {
@@ -59,18 +62,18 @@ matriculas.forEach((input) => {
     input.addEventListener("blur", exibirMatriculas);
 
 
-function limitarComprimento(event) {
-    const input = event.target;
-    const valor = input.value;
+    function limitarComprimento(event) {
+        const input = event.target;
+        const valor = input.value;
 
-    if (valor.length > 5) {
-        input.value = valor.slice(0, 5); // Limita a 5 caracteres
+        if (valor.length > 5) {
+            input.value = valor.slice(0, 5); // Limita a 5 caracteres
+        }
     }
-}
 
-matriculas.forEach((input) => {
-    input.addEventListener("input", limitarComprimento);
-});
+    matriculas.forEach((input) => {
+        input.addEventListener("input", limitarComprimento);
+    });
 
 });
 
@@ -139,11 +142,12 @@ function validarFormulario() {
 
 function salvarDados() {
     var dados = {
-        nome: nome.value,
+        lider: lider.value,
         equipe: equipe.value,
         placa: placa.value,
-        modelo: modelo.value,
-        local: local.value,
+        ordemServico: ordemServico.value,
+        matricula1: matricula1.value,
+        matriculaLider: matriculaLider.value,
         data: new Date().toLocaleDateString(),
         hora: new Date().toLocaleTimeString()
     };
