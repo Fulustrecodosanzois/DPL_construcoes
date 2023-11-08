@@ -29,7 +29,7 @@ lider.addEventListener("blur", exibirLider)
 //         matriculaLider.style.border = "1px solid green"
 //     }
 
-   
+
 // }
 
 // matriculaLider.addEventListener("blur", exibirmatriculaLider)
@@ -47,6 +47,7 @@ const matriculas = [
     document.querySelector("#matricula6"),
     document.querySelector("#matriculaLider")
 ];
+
 
 function exibirMatriculas(event) {
     const input = event.target;
@@ -141,7 +142,7 @@ ordemServico.addEventListener("blur", exibirOrdemServico)
 //     if (validarInformativo()) {
 //     }
 //     else {
-       
+
 //     }
 
 // });
@@ -150,6 +151,7 @@ ordemServico.addEventListener("blur", exibirOrdemServico)
 
 function validarFormulario() {
     const matricula1 = document.querySelector("#matricula1")
+
 
     if (lider.value === '' || ordemServico.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
         return false;
@@ -161,25 +163,25 @@ function validarFormulario() {
 
 //------------------------------------ LocalStorage
 
-function salvarDados() {
-    var dados = {
-        lider: lider.value,
-        equipe: equipe.value,
-        placa: placa.value,
-        ordemServico: ordemServico.value,
-        matricula1: matricula1.value,
-        matriculaLider: matriculaLider.value,
-        matriculas: matriculas.value,
-        data: new Date().toLocaleDateString(),
-        hora: new Date().toLocaleTimeString()
-    };
-    localStorage.setItem("dadosTemp", JSON.stringify(dados));
-}
+// function salvarDados() {
+//     var dados = {
+//         lider: lider.value,
+//         equipe: equipe.value,
+//         placa: placa.value,
+//         ordemServico: ordemServico.value,
+//         matricula1: matricula1.value,
+//         matriculaLider: matriculaLider.value,
+//         matriculas: [matricula1, matricula2, matricula3, matricula4, matricula5, matricula6],
+//         data: new Date().toLocaleDateString(),
+//         hora: new Date().toLocaleTimeString()
+//     };
+//     localStorage.setItem("dadosTemp", JSON.stringify(dados));
+// }
 
 document.getElementById("btnEnviar").addEventListener("click", (evento) => {
     evento.preventDefault()
     if (validarFormulario()) {
-        salvarDados()
+        // salvarDados()
         window.location.href = "desligar1.html"
     }
     else {
