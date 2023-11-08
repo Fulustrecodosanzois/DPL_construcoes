@@ -45,27 +45,41 @@ function exibirRegistros() {
               <th scope="row" class="bg-body-secondary rounded-start">Registro N°:</th>
               <td class="text-end bg-body-secondary rounded-end" colspan="2">${index < 9 ? '00' : ''}${index > 10 ? '0' : ''}${index > 99 ? '' : ''}${index + 1}</td>
             </tr>
+
             <tr class="">
-              <th scope="row">Nome:</th>
-              <td class="text-end" colspan="2">${registro.nome}</td>
-              
+              <th scope="row">Líder:</th>
+              <td class="text-end" colspan="2">${registro.lider}</td>
             </tr>
+
+            <tr class="">
+              <th scope="row">Matrícula Líder:</th>
+              <td class="text-end" colspan="2">${registro.matriculaLider}</td>
+            </tr>
+            <tr class="">
+              <th scope="row">Matrículas Equipe:</th>
+              <td class="text-end" colspan="2">${registro.matriculas}</td>
+            </tr>
+
             <tr>
               <th scope="row">Equipe:</th>
               <td class="text-end" colspan="2">${registro.equipe}</td>
             </tr>
+
             <tr>
-              <th scope="row" colspan="1">Placa/Modelo:</th>
-              <td colspan=23" class="text-end">${registro.placa} / ${registro.modelo}</td>
+              <th scope="row" colspan="1">Placa:</th>
+              <td colspan=23" class="text-end">${registro.placa}</td>
             </tr>
+
             <tr>
               <th scope="row">Endereço:</th>
               <td colspan="2" class="text-end">${registro.local}</td>
             </tr>
+
             <tr class="">
               <td colspan="2" class="bg-body-tertiary">${registro.data}</td>
               <td colspan="2" class="bg-body-tertiary text-end">${registro.hora}</td>
             </tr>
+
           </tbody>
         </table>
       </div>
