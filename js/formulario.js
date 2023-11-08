@@ -1,47 +1,76 @@
 // JavaScript - Formulário
 
-let nome = document.querySelector("#nome")
+// ------------------------ LIDER
 
-function exibirNome() {
-    if (nome.value == "") {
-        nome.style.border = "1px solid red"
+let lider = document.querySelector("#lider")
+
+function exibirLider() {
+    if (lider.value == "") {
+        lider.style.border = "1px solid red"
     }
     else {
-        nome.style.border = "1px solid green"
+        lider.style.border = "1px solid green"
     }
 }
 
-nome.addEventListener("blur", exibirNome)
+lider.addEventListener("blur", exibirLider)
 
-// Equipe
 
-let equipe = document.querySelector("#equipe")
 
-function exibirEquipe() {
-    if (equipe.value == "") {
-        equipe.style.border = "1px solid red"
+// -------------------------MATRÍCULA LIDER
+
+let matriculaLider = document.querySelector("#matriculaLider")
+
+function exibirmatriculaLider() {
+    if (matriculaLider.value == "") {
+        matriculaLider.style.border = "1px solid red"
     }
     else {
-        equipe.style.border = "1px solid green"
+        matriculaLider.style.border = "1px solid green"
     }
 }
 
-equipe.addEventListener("blur", exibirEquipe)
+matriculaLider.addEventListener("blur", exibirmatriculaLider)
 
-// Veículo
 
-let placa = document.querySelector("#placa")
 
-function exibirPlaca() {
-    if (placa.value == "") {
-        placa.style.border = "1px solid red"
-    }
-    else {
-        placa.style.border = "1px solid green"
-    }
+// matricula equipe
+
+const matriculas = [
+    document.querySelector("#matricula1"),
+    document.querySelector("#matricula2"),
+    document.querySelector("#matricula3"),
+    document.querySelector("#matricula4"),
+    document.querySelector("#matricula5"),
+    document.querySelector("#matricula6")
+];
+
+function exibirMatriculas() {
+    matriculas.forEach((input) => {
+        if (input.value == "") {
+            input.style.border = "1px solid red";
+        } else {
+            input.style.border = "1px solid green";
+        }
+    });
 }
 
-placa.addEventListener("blur", exibirPlaca)
+matriculas.addEventListener("blur", exibirMatriculas)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 let modelo = document.querySelector("#modelo")
 
@@ -74,7 +103,7 @@ local.addEventListener("blur", exibirLocal)
 
 function validarFormulario() {
 
-    if (nome.value === '' || equipe.value === '' || placa.value === '' || modelo.value === '' || local.value === '') {
+    if (lider.value === '' || equipe.value === '' || placa.value === '' || modelo.value === '' || local.value === '') {
         return false;
     }
     else {

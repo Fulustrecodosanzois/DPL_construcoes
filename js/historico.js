@@ -1,11 +1,6 @@
 let historicoContainer = document.querySelector("#historico-container")
 function salvarRegistro() {
 
- /* VAZIO? */
- /* VAZIO? */
- /* VAZIO? */
- /* VAZIO? */
- /* VAZIO? */
 
 }
 
