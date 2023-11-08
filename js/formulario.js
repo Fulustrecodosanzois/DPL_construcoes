@@ -34,7 +34,7 @@ matriculaLider.addEventListener("blur", exibirmatriculaLider)
 
 
 
-// matricula equipe
+// ---------------------------- matricula equipe
 
 const matriculas = [
     document.querySelector("#matricula1"),
@@ -45,65 +45,73 @@ const matriculas = [
     document.querySelector("#matricula6")
 ];
 
-function exibirMatriculas() {
-    matriculas.forEach((input) => {
-        if (input.value == "") {
-            input.style.border = "1px solid red";
-        } else {
-            input.style.border = "1px solid green";
-        }
-    });
+function exibirMatriculas(event) {
+    const input = event.target;
+
+    if (input.value == "") {
+        input.style.border = "1px solid red";
+    } else {
+        input.style.border = "1px solid green";
+    }
 }
 
-matriculas.addEventListener("blur", exibirMatriculas)
+matriculas.forEach((input) => {
+    input.addEventListener("blur", exibirMatriculas);
 
 
+function limitarComprimento(event) {
+    const input = event.target;
+    const valor = input.value;
+
+    if (valor.length > 5) {
+        input.value = valor.slice(0, 5); // Limita a 5 caracteres
+    }
+}
+
+matriculas.forEach((input) => {
+    input.addEventListener("input", limitarComprimento);
+});
+
+});
 
 
+// ------------------------------ PLACA    
 
+let placa = document.querySelector("#placa")
 
+function exibirPlaca() {
 
-
-
-
-
-
-
-
-
-
-let modelo = document.querySelector("#modelo")
-
-function exibirModelo() {
-
-    if (modelo.value == "") {
-        modelo.style.border = "1px solid red"
+    if (placa.value == "") {
+        placa.style.border = "1px solid red"
     }
     else {
-        modelo.style.border = "1px solid green"
+        placa.style.border = "1px solid green"
     }
 }
 
-modelo.addEventListener("blur", exibirModelo)
+placa.addEventListener("blur", exibirPlaca)
 
-let local = document.querySelector("#local")
+// EQUIPE
 
-function exibirLocal() {
-    if (local.value == "") {
-        local.style.border = "1px solid red"
+let equipe = document.querySelector("#equipe")
+
+function exibirEquipe() {
+    if (equipe.value == "") {
+        equipe.style.border = "1px solid red"
     }
     else {
-        local.style.border = "1px solid green"
+        equipe.style.border = "1px solid green"
     }
 }
 
-local.addEventListener("blur", exibirLocal)
+equipe.addEventListener("blur", exibirEquipe)
 
 // -----------------------------------------Validação
 
 function validarFormulario() {
+    const matricula1 = document.querySelector("#matricula1")
 
-    if (lider.value === '' || equipe.value === '' || placa.value === '' || modelo.value === '' || local.value === '') {
+    if (lider.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
         return false;
     }
     else {
