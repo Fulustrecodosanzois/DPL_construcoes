@@ -49,6 +49,8 @@ const matriculas = [
 ];
 
 
+
+
 function exibirMatriculas(event) {
     const input = event.target;
 
@@ -163,25 +165,25 @@ function validarFormulario() {
 
 //------------------------------------ LocalStorage
 
-// function salvarDados() {
-//     var dados = {
-//         lider: lider.value,
-//         equipe: equipe.value,
-//         placa: placa.value,
-//         ordemServico: ordemServico.value,
-//         matricula1: matricula1.value,
-//         matriculaLider: matriculaLider.value,
-//         matriculas: [matricula1, matricula2, matricula3, matricula4, matricula5, matricula6],
-//         data: new Date().toLocaleDateString(),
-//         hora: new Date().toLocaleTimeString()
-//     };
-//     localStorage.setItem("dadosTemp", JSON.stringify(dados));
-// }
+function salvarDados() {
+    var dados = {
+        lider: lider.value,
+        equipe: equipe.value,
+        placa: placa.value,
+        ordemServico: ordemServico.value,
+        matricula1: matricula1.value,
+        matriculaLider: matriculaLider.value,
+        matriculas: JSON.stringify([matricula1.value, matricula2.value, matricula3.value, matricula4.value, matricula5.value, matricula6.value]),
+        data: new Date().toLocaleDateString(),
+        hora: new Date().toLocaleTimeString()
+    };
+    localStorage.setItem("dadosTemp", JSON.stringify(dados));
+}
 
 document.getElementById("btnEnviar").addEventListener("click", (evento) => {
     evento.preventDefault()
     if (validarFormulario()) {
-        // salvarDados()
+        salvarDados()
         window.location.href = "desligar1.html"
     }
     else {
