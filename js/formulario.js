@@ -125,39 +125,34 @@ function exibirOrdemServico() {
 
 ordemServico.addEventListener("blur", exibirOrdemServico)
 
-// ------------------------------ INFORMATIVO
-
-// function validarInformativo(){
-//     if (lider.value === '' ){
-//         return false;
-//     }
-//     else{
-//         return true
-//     }
-// }
-
-// document.getElementById("informativo").addEventListener("click", (evento) => {
-//     evento.preventDefault()
-//     if (validarInformativo()) {
-//     }
-//     else {
-       
-//     }
-
-// });
-
 // ------------------------------  Validação
 
-function validarFormulario() {
-    const matricula1 = document.querySelector("#matricula1")
+let informativoClicked = false;
 
-    if (lider.value === '' || ordemServico.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
+document.getElementById("verInformativoBtn").addEventListener("click", function () {
+  informativoClicked = true;
+});
+
+function validarFormulario() {
+  const matricula1 = document.querySelector("#matricula1");
+
+  
+
+  if (lider.value === '' || ordemServico.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+function validarInformativo (){
+    if (!informativoClicked) {       
         return false;
-    }
-    else {
+      }
+      else{
         return true
-    }
-};
+      }
+}
 
 //------------------------------------ LocalStorage
 
@@ -178,12 +173,15 @@ function salvarDados() {
 
 document.getElementById("btnEnviar").addEventListener("click", (evento) => {
     evento.preventDefault()
-    if (validarFormulario()) {
+    if (!validarFormulario()) {
+        alert("Por favor preencha todos os campos.");
+    }
+    else if(!validarInformativo()) {
+        alert("É necessário a leitura do informativo!");
+    } 
+    else{       
         salvarDados()
         window.location.href = "desligar1.html"
-    }
-    else {
-        alert("Por favor preencha todos os campos.");
     }
 });
 
