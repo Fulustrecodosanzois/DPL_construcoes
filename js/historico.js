@@ -1,6 +1,7 @@
 let historicoContainer = document.querySelector("#historico-container")
 function salvarRegistro() {
- //vazio
+
+
 }
 
 function atualizarData() {

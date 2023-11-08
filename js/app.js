@@ -35,7 +35,6 @@ btnRegistrar.addEventListener("click", async (evento) => {
         });
         console.log("Documento escrito com ID: ", docRef.id); 
         alert(dados); 
-
     } catch (error) {
         console.error("O seguinte erro ocorreu: " + error);
     }
