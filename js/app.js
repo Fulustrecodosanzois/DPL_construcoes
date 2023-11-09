@@ -49,5 +49,18 @@ btnEnviar.addEventListener("click", async (evento) => {
 });
 
 
+// --------------------------------AUTENTICAÇÕES
+
+function exibirLider() {
+    if (lider.value == "") {
+        lider.style.border = "1px solid red"
+    }
+    else {
+        lider.style.border = "1px solid green"
+    }
+}
+
+lider.addEventListener("blur", exibirLider)
+
 
 
