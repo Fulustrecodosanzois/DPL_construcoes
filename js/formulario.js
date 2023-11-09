@@ -1,169 +1,169 @@
-// JavaScript - Formulário
+// // JavaScript - Formulário
 
-// ------------------------ LIDER
+// // ------------------------ LIDER
 
-let lider = document.querySelector("#lider")
+// let lider = document.querySelector("#lider")
 
-function exibirLider() {
-    if (lider.value == "") {
-        lider.style.border = "1px solid red"
-    }
-    else {
-        lider.style.border = "1px solid green"
-    }
-}
-
-lider.addEventListener("blur", exibirLider)
-
-
-
-// -------------------------MATRÍCULA LIDER
-
-// let matriculaLider = document.querySelector("#matriculaLider")
-
-// function exibirmatriculaLider() {
-//     if (matriculaLider.value == "") {
-//         matriculaLider.style.border = "1px solid red"
+// function exibirLider() {
+//     if (lider.value == "") {
+//         lider.style.border = "1px solid red"
 //     }
 //     else {
-//         matriculaLider.style.border = "1px solid green"
+//         lider.style.border = "1px solid green"
 //     }
-
-   
 // }
 
-// matriculaLider.addEventListener("blur", exibirmatriculaLider)
+// lider.addEventListener("blur", exibirLider)
 
 
 
-// ---------------------------- matricula equipe
+// // -------------------------MATRÍCULA LIDER
 
-const matriculas = [
-    document.querySelector("#matricula1"),
-    document.querySelector("#matricula2"),
-    document.querySelector("#matricula3"),
-    document.querySelector("#matricula4"),
-    document.querySelector("#matricula5"),
-    document.querySelector("#matricula6"),
-    document.querySelector("#matriculaLider")
-];
+// // let matriculaLider = document.querySelector("#matriculaLider")
 
-function exibirMatriculas(event) {
-    const input = event.target;
-
-    if (input.value == "") {
-        input.style.border = "1px solid red";
-    } else {
-        input.style.border = "2px solid green";
-    }
-}
-
-matriculas.forEach((input) => {
-    input.addEventListener("blur", exibirMatriculas);
+// // function exibirmatriculaLider() {
+// //     if (matriculaLider.value == "") {
+// //         matriculaLider.style.border = "1px solid red"
+// //     }
+// //     else {
+// //         matriculaLider.style.border = "1px solid green"
+// //     }
 
 
-    function limitarComprimento(event) {
-        const input = event.target;
-        const valor = input.value;
+// // }
 
-        if (valor.length > 5) {
-            input.value = valor.slice(0, 5); // Limita a 5 caracteres
-        }
-    }
-
-    matriculas.forEach((input) => {
-        input.addEventListener("input", limitarComprimento);
-    });
-
-});
+// // matriculaLider.addEventListener("blur", exibirmatriculaLider)
 
 
-// ------------------------------ PLACA    
 
-let placa = document.querySelector("#placa")
+// // ---------------------------- matricula equipe
 
-function exibirPlaca() {
+// const matriculas = [
+//     document.querySelector("#matricula1"),
+//     document.querySelector("#matricula2"),
+//     document.querySelector("#matricula3"),
+//     document.querySelector("#matricula4"),
+//     document.querySelector("#matricula5"),
+//     document.querySelector("#matricula6"),
+//     document.querySelector("#matriculaLider")
+// ];
 
-    if (placa.value == "") {
-        placa.style.border = "1px solid red"
-    }
-    else {
-        placa.style.border = "1px solid green"
-    }
-}
+// function exibirMatriculas(event) {
+//     const input = event.target;
 
-placa.addEventListener("blur", exibirPlaca)
+//     if (input.value == "") {
+//         input.style.border = "1px solid red";
+//     } else {
+//         input.style.border = "2px solid green";
+//     }
+// }
 
-// ------------------------------ EQUIPE
-
-let equipe = document.querySelector("#equipe")
-
-function exibirEquipe() {
-    if (equipe.value == "") {
-        equipe.style.border = "1px solid red"
-    }
-    else {
-        equipe.style.border = "1px solid green"
-    }
-}
-
-equipe.addEventListener("blur", exibirEquipe)
+// matriculas.forEach((input) => {
+//     input.addEventListener("blur", exibirMatriculas);
 
 
-//  -------------------------- ORDEM DE SERVIÇO
+//     function limitarComprimento(event) {
+//         const input = event.target;
+//         const valor = input.value;
 
-let ordemServico = document.querySelector("#ordemServico")
+//         if (valor.length > 5) {
+//             input.value = valor.slice(0, 5); // Limita a 5 caracteres
+//         }
+//     }
 
-function exibirOrdemServico() {
-    if (ordemServico.value == "") {
-        ordemServico.style.border = "1px solid red"
-    }
-    else {
-        ordemServico.style.border = "1px solid green"
-    }
-}
+//     matriculas.forEach((input) => {
+//         input.addEventListener("input", limitarComprimento);
+//     });
 
-ordemServico.addEventListener("blur", exibirOrdemServico)
+// });
 
 
-// ------------------------------  Validação
+// // ------------------------------ PLACA    
 
-function validarFormulario() {
-    const matricula1 = document.querySelector("#matricula1")
+// let placa = document.querySelector("#placa")
 
-    if (lider.value === '' || ordemServico.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
-        return false;
-    }
-    else {
-        return true
-    }
-};
+// function exibirPlaca() {
 
-//------------------------------------ LocalStorage
+//     if (placa.value == "") {
+//         placa.style.border = "1px solid red"
+//     }
+//     else {
+//         placa.style.border = "1px solid green"
+//     }
+// }
 
-function salvarDados() {
-    var dados = {
-        lider: lider.value,
-        equipe: equipe.value,
-        placa: placa.value,
-        ordemServico: ordemServico.value,
-        matricula1: matricula1.value,
-        matriculaLider: matriculaLider.value,
-        matriculas: matriculas.value,
-        data: new Date().toLocaleDateString(),
-        hora: new Date().toLocaleTimeString()
-    };
-    localStorage.setItem("dadosTemp", JSON.stringify(dados));
-}
+// placa.addEventListener("blur", exibirPlaca)
 
-document.getElementById("btnEnviar").addEventListener("click", (evento) => {
-    evento.preventDefault()
-    if (validarFormulario()) {
-        salvarDados()
-        window.location.href = "desligar1.html"
-    }
-    else {
-        alert("Por favor preencha todos os campos.");
-    }
-});
+// // ------------------------------ EQUIPE
+
+// let equipe = document.querySelector("#equipe")
+
+// function exibirEquipe() {
+//     if (equipe.value == "") {
+//         equipe.style.border = "1px solid red"
+//     }
+//     else {
+//         equipe.style.border = "1px solid green"
+//     }
+// }
+
+// equipe.addEventListener("blur", exibirEquipe)
+
+
+// //  -------------------------- ORDEM DE SERVIÇO
+
+// let ordemServico = document.querySelector("#ordemServico")
+
+// function exibirOrdemServico() {
+//     if (ordemServico.value == "") {
+//         ordemServico.style.border = "1px solid red"
+//     }
+//     else {
+//         ordemServico.style.border = "1px solid green"
+//     }
+// }
+
+// ordemServico.addEventListener("blur", exibirOrdemServico)
+
+
+// // ------------------------------  Validação
+
+// function validarFormulario() {
+//     const matricula1 = document.querySelector("#matricula1")
+
+//     if (lider.value === '' || ordemServico.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
+//         return false;
+//     }
+//     else {
+//         return true
+//     }
+// };
+
+// //------------------------------------ LocalStorage
+
+// function salvarDados() {
+//     var dados = {
+//         lider: lider.value,
+//         equipe: equipe.value,
+//         placa: placa.value,
+//         ordemServico: ordemServico.value,
+//         matricula1: matricula1.value,
+//         matriculaLider: matriculaLider.value,
+//         matriculas: matriculas.value,
+//         data: new Date().toLocaleDateString(),
+//         hora: new Date().toLocaleTimeString()
+//     };
+//     localStorage.setItem("dadosTemp", JSON.stringify(dados));
+// }
+
+// document.getElementById("btnEnviar").addEventListener("click", (evento) => {
+//     evento.preventDefault()
+//     if (validarFormulario()) {
+//         salvarDados()
+//         window.location.href = "desligar1.html"
+//     }
+//     else {
+//         alert("Por favor preencha todos os campos.");
+//     }
+// });
 
