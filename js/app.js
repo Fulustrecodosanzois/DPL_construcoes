@@ -1,33 +1,31 @@
 import { app, db } from "./config-firebase.js";
 import { addDoc, collection } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
 
-    //--------------------------- VARIÁVEIS 
+//--------------------------- VARIÁVEIS 
 
 const formRegistro = document.querySelector("#form-registro");
 const btnEnviar = document.querySelector("#btnEnviar");
 const btnConfirmarModal = document.querySelector("#item");
 let modalClicado = false;
+let alertAtivo = false;
 
-
-    // -------------------- AUTENTICAÇÃO DO MODAL
+// -------------------- AUTENTICAÇÃO DO MODAL
 
 btnConfirmarModal.addEventListener("click", () => {
-
     const meuModal = new bootstrap.Modal(document.getElementById("meuModal"));
     meuModal.hide();
     modalClicado = true;
 });
 
-    // -------------------- DADOS DO FORMULÁRIO
+// -------------------- DADOS DO FORMULÁRIO
 
 btnEnviar.addEventListener("click", async (evento) => {
     evento.preventDefault();
 
     if (!modalClicado) {
-        alert("Por favor, leia e confirme o botão VER INFORMATIVO.");
+        exibirAlerta("Por favor, leia e confirme o botão VER INFORMATIVO.");
         return;
     }
-
 
     // ------------------------- CAMPOS FALTANDO
 
@@ -48,28 +46,20 @@ btnEnviar.addEventListener("click", async (evento) => {
         { campo: "matriculaLider", valor: matriculaLider, mensagem: "Matrícula do Líder" },
         { campo: "placa", valor: placa, mensagem: "Placa" },
         { campo: "equipe", valor: equipe, mensagem: "Equipe" },
-        { campo: "matricula1", valor: matricula1, mensagem: "Matrícula 1°" },
+        { campo: "matricula1", valor: matricula1, mensagem: "No mínimo Matrícula 1°" },
         { campo: "ordemServico", valor: ordemServico, mensagem: "Ordem de Serviço" }
     ];
 
-    // Verificar se todos os campos obrigatórios foram preenchidos
     const camposNaoPreenchidos = camposObrigatorios.filter(campo => !campo.valor);
-    
+
     if (camposNaoPreenchidos.length > 0) {
-        const camposFaltantes = camposNaoPreenchidos.map(campo => campo.mensagem).join(", ");
-        alert(`Por favor, preencha os seguintes campos obrigatórios: ${camposFaltantes}!!!`);
+        const camposFaltantes = "Falta preencher os seguintes campos: " + camposNaoPreenchidos.map(campo => campo.mensagem).join(", ");
+        exibirAlerta(camposFaltantes);
         return;
     }
 
-
-    // ----------------------------------- Validar os campos 
-    if (!lider || !matriculaLider || !placa || !equipe || !matricula1 || !ordemServico) {
-        alert("Por favor, preencha todos os campos obrigatórios.");
-        return;
-    }
     // ---------------------------------- Adicionar documento ao Firestore
     try {
-        
         const docRef = await addDoc(collection(db, "registrar"), {
             lider,
             matriculaLider,
@@ -86,10 +76,9 @@ btnEnviar.addEventListener("click", async (evento) => {
         window.location.href = "./desligar1.html";
     } catch (error) {
         console.error("Erro ao adicionar documento: ", error);
-        alert("Ocorreu um erro. Por favor, tente novamente.");
+        exibirAlerta("Ocorreu um erro. Por favor, tente novamente.");
     }
 });
-
 
 // --------------------------------AUTENTICAÇÕES
 
@@ -97,14 +86,13 @@ const lider = document.querySelector("#lider");
 
 function exibirLider() {
     if (lider.value == "") {
-        lider.style.border = "1px solid red"
-    }
-    else {
-        lider.style.border = "1px solid green"
+        lider.style.border = "1px solid red";
+    } else {
+        lider.style.border = "1px solid green";
     }
 }
 
-lider.addEventListener("blur", exibirLider)
+lider.addEventListener("blur", exibirLider);
 
 const matriculas = [
     document.querySelector("#matricula1"),
@@ -129,7 +117,6 @@ function exibirMatriculas(event) {
 matriculas.forEach((input) => {
     input.addEventListener("blur", exibirMatriculas);
 
-
     function limitarComprimento(event) {
         const input = event.target;
         const valor = input.value;
@@ -142,49 +129,75 @@ matriculas.forEach((input) => {
     matriculas.forEach((input) => {
         input.addEventListener("input", limitarComprimento);
     });
-
 });
 
-let placa = document.querySelector("#placa")
+let placa = document.querySelector("#placa");
 
 function exibirPlaca() {
-
     if (placa.value == "") {
-        placa.style.border = "1px solid red"
-    }
-    else {
-        placa.style.border = "1px solid green"
+        placa.style.border = "1px solid red";
+    } else {
+        placa.style.border = "1px solid green";
     }
 }
 
-placa.addEventListener("blur", exibirPlaca)
+placa.addEventListener("blur", exibirPlaca);
 
-let equipe = document.querySelector("#equipe")
+let equipe = document.querySelector("#equipe");
 
 function exibirEquipe() {
     if (equipe.value == "") {
-        equipe.style.border = "1px solid red"
-    }
-    else {
-        equipe.style.border = "1px solid green"
+        equipe.style.border = "1px solid red";
+    } else {
+        equipe.style.border = "1px solid green";
     }
 }
 
-equipe.addEventListener("blur", exibirEquipe)
+equipe.addEventListener("blur", exibirEquipe);
 
-let ordemServico = document.querySelector("#ordemServico")
+let ordemServico = document.querySelector("#ordemServico");
 
 function exibirOrdemServico() {
     if (ordemServico.value == "") {
-        ordemServico.style.border = "1px solid red"
-    }
-    else {
-        ordemServico.style.border = "1px solid green"
+        ordemServico.style.border = "1px solid red";
+    } else {
+        ordemServico.style.border = "1px solid green";
     }
 }
 
-ordemServico.addEventListener("blur", exibirOrdemServico)
+ordemServico.addEventListener("blur", exibirOrdemServico);
 
+// Função para exibir alerta personalizado
+function exibirAlerta(mensagem) {
+    if (alertAtivo) {
+        return; // Evita a sobreposição de alertas
+    }
 
+    alertAtivo = true;
 
+    // Ícone de alerta da FontAwesome
+    const alertIcon = '<i class="fas fa-exclamation-triangle" style="font-size: 24px; color: #fff;"></i>';
 
+    // Adiciona a mensagem e botões ao corpo do documento (HTML)
+    const alertContainer = document.createElement('div');
+    alertContainer.innerHTML = `
+        <div class="text-center" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: #000; border: 2px solid #fff; z-index: 9999; width: 80%;">
+            ${alertIcon}
+            <p style="font-size: 18px; font-weight: bold; color: #fff; ; padding: 5px 10px; display: inline-block;">${mensagem}</p>
+            <div style="margin-top: 10px; text-align: center;">
+                <button id="fecharAlert" style="font-size: 16px; font-weight: bold; padding: 8px 16px; background: #fff; color: #000; border: none; cursor: pointer;">Fechar</button>
+            </div>
+        </div>
+    `;
+    alertContainer.style.zIndex = '9999';
+    document.body.appendChild(alertContainer);
+
+    // Adiciona evento ao botão de fechar
+    const fecharButton = document.getElementById('fecharAlert');
+
+    fecharButton.addEventListener('click', () => {
+        // Lógica para lidar com o botão de fechar
+        document.body.removeChild(alertContainer);
+        alertAtivo = false;
+    });
+}
