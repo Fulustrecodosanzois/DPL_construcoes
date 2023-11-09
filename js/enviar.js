@@ -22,7 +22,8 @@
 //         }
 //         localStorage.setItem("relatorio", JSON.stringify(relatorio))
 //         localStorage.removeItem("dadosTemp")
-        
+//         alert("Registro enviado com sucesso!");
+//         window.location.href = "../index.html"
 
 //       }
 //       window.location.href = '../index.html';

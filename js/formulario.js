@@ -29,7 +29,7 @@ lider.addEventListener("blur", exibirLider)
 //         matriculaLider.style.border = "1px solid green"
 //     }
 
-
+   
 // }
 
 // matriculaLider.addEventListener("blur", exibirmatriculaLider)
@@ -47,9 +47,6 @@ const matriculas = [
     document.querySelector("#matricula6"),
     document.querySelector("#matriculaLider")
 ];
-
-
-
 
 function exibirMatriculas(event) {
     const input = event.target;
@@ -128,34 +125,19 @@ function exibirOrdemServico() {
 
 ordemServico.addEventListener("blur", exibirOrdemServico)
 
+
 // ------------------------------  Validação
 
-let informativoClicked = false;
-
-document.getElementById("verInformativoBtn").addEventListener("click", function () {
-  informativoClicked = true;
-});
-
 function validarFormulario() {
-  const matricula1 = document.querySelector("#matricula1");
+    const matricula1 = document.querySelector("#matricula1")
 
-  
-
-  if (lider.value === '' || ordemServico.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
-    return false;
-  } else {
-    return true;
-  }
-}
-
-function validarInformativo (){
-    if (!informativoClicked) {       
+    if (lider.value === '' || ordemServico.value === '' || equipe.value === '' || placa.value === '' || matricula1.value === '' || matriculaLider.value === '') {
         return false;
-      }
-      else{
+    }
+    else {
         return true
-      }
-}
+    }
+};
 
 //------------------------------------ LocalStorage
 
@@ -167,7 +149,7 @@ function salvarDados() {
         ordemServico: ordemServico.value,
         matricula1: matricula1.value,
         matriculaLider: matriculaLider.value,
-        matriculas: JSON.stringify([matricula1.value, matricula2.value, matricula3.value, matricula4.value, matricula5.value, matricula6.value]),
+        matriculas: matriculas.value,
         data: new Date().toLocaleDateString(),
         hora: new Date().toLocaleTimeString()
     };
@@ -177,18 +159,11 @@ function salvarDados() {
 document.getElementById("btnEnviar").addEventListener("click", (evento) => {
     evento.preventDefault()
     if (validarFormulario()) {
-        // salvarDados()
+        salvarDados()
         window.location.href = "desligar1.html"
     }
     else {
         alert("Por favor preencha todos os campos.");
-    }
-    else if(!validarInformativo()) {
-        alert("É necessário a leitura do informativo!");
-    } 
-    else{       
-        salvarDados()
-        window.location.href = "desligar1.html"
     }
 });
 

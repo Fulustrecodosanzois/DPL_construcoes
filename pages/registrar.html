@@ -37,7 +37,7 @@
 
   <main class="">
 
-    <form action="btnEnviar" id="formulario">
+    <form action="btnEnviar" id="form-registro">
       <div class="">
         <div class="container mb-2 py-4">
           <div class="mb-3 text_center">
@@ -98,7 +98,10 @@
               </div>
             </div>
           </div>
-          <small class="fonte">* Informe no mínimo uma matrícula.</small>
+          <small class="fonte ">* Informe no mínimo uma matrícula.</small>
+
+
+
 
           <div class="input-group mt-3">
             <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Número da OS/NR</span>
@@ -115,7 +118,7 @@
       <div>
         <div class="container mt-4 text-center">
           <a type="button" class="btn bg-secondary text-white fw-bolder" data-bs-toggle="modal"
-            data-bs-target="#meuModal" id="verInformativoBtn">
+            data-bs-target="#meuModal">
             Ver Informativo
           </a>
         </div>
@@ -126,6 +129,7 @@
               <div class="modal-content fundo_laranja text-white">
                 <div class="modal-header">
                   <h3 class="modal-title" id="meuModalLabel">Leia Atentamente</h3>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <div class="modal-body">
   
@@ -234,4 +238,5 @@
   <script src="../js/formulario.js"></script>
   <script type="module" src="../js/config-firebase.js"></script>
   <script type="module" src="../js/app.js"></script>
+
 </body>
