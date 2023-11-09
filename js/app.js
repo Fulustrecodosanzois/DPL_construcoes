@@ -18,7 +18,6 @@ btnConfirmarModal.addEventListener("click", () => {
     modalClicado = true;
 });
 
-
     // -------------------- DADOS DO FORMULÁRIO
 
 btnEnviar.addEventListener("click", async (evento) => {
@@ -28,6 +27,9 @@ btnEnviar.addEventListener("click", async (evento) => {
         alert("Por favor, leia e confirme o botão VER INFORMATIVO.");
         return;
     }
+
+
+    // ------------------------- CAMPOS FALTANDO
 
     const lider = document.getElementById("lider").value;
     const matriculaLider = document.getElementById("matriculaLider").value;
@@ -40,6 +42,25 @@ btnEnviar.addEventListener("click", async (evento) => {
     const matricula5 = document.getElementById("matricula5").value;
     const matricula6 = document.getElementById("matricula6").value;
     const ordemServico = document.getElementById("ordemServico").value;
+
+    const camposObrigatorios = [
+        { campo: "lider", valor: lider, mensagem: "Líder" },
+        { campo: "matriculaLider", valor: matriculaLider, mensagem: "Matrícula do Líder" },
+        { campo: "placa", valor: placa, mensagem: "Placa" },
+        { campo: "equipe", valor: equipe, mensagem: "Equipe" },
+        { campo: "matricula1", valor: matricula1, mensagem: "Matrícula 1°" },
+        { campo: "ordemServico", valor: ordemServico, mensagem: "Ordem de Serviço" }
+    ];
+
+    // Verificar se todos os campos obrigatórios foram preenchidos
+    const camposNaoPreenchidos = camposObrigatorios.filter(campo => !campo.valor);
+    
+    if (camposNaoPreenchidos.length > 0) {
+        const camposFaltantes = camposNaoPreenchidos.map(campo => campo.mensagem).join(", ");
+        alert(`Por favor, preencha os seguintes campos obrigatórios: ${camposFaltantes}!!!`);
+        return;
+    }
+
 
     // ----------------------------------- Validar os campos 
     if (!lider || !matriculaLider || !placa || !equipe || !matricula1 || !ordemServico) {
