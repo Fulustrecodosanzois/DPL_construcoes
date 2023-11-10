@@ -150,7 +150,7 @@ function exibirMatriculas(event) {
     if (input.value == "") {
         input.style.border = "1px solid red";
     } else {
-        input.style.border = "2px solid green";
+        input.style.border = "1px solid green";
     }
 }
 
