@@ -192,9 +192,8 @@
 
 
 
-import { app, db } from "./config-firebase.js";
-import { addDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
-
+import { db } from "./config-firebase.js";
+import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
