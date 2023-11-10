@@ -242,7 +242,111 @@
 
 
 
-// ---------------------- PLANO B
+// // ---------------------- PLANO B
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { db } from "./config-firebase.js";
+// import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+
+// document.addEventListener("DOMContentLoaded", async () => {
+//     try {
+//         // Obtenha os documentos da coleção "registrar"
+//         const querySnapshot = await getDocs(collection(db, "registrar"));
+
+//         // Exiba as informações na página
+//         const informacoesDiv = document.getElementById("informacoes");
+//         informacoesDiv.innerHTML = ""; // Limpe o conteúdo anterior
+
+//         querySnapshot.forEach((doc, index) => {
+//             const data = doc.data();
+//             const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
+//             informacoesDiv.innerHTML += infoCardHTML;
+//         });
+//     } catch (error) {
+//         console.error("Erro ao obter informações:", error);
+//     }
+// });
+
+// function criarCardInformacaoHTML(data, ordemServico, timestamp) {
+//     return `
+//         <div class="col-12 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center">
+//             <div class="px-3">
+//                 <table class="table px-4">
+//                     <tbody>
+//                         <tr>
+//                             <th scope="row" class="bg-body-secondary rounded-start">Ordem de Serviço:</th>
+//                             <td class="text-end bg-body-secondary rounded-end" colspan="3">${ordemServico}</td>
+//                         </tr>
+//                         <tr>
+//                             <th scope="row">Líder:</th>
+//                             <td class="text-end" colspan="3">${data.lider}</td>
+//                         </tr>
+//                         <tr>
+//                             <th scope="row">Matrícula Líder:</th>
+//                             <td class="text-end" colspan="3">${data.matriculaLider}</td>
+//                         </tr>
+//                         <tr>
+//                             <th scope="row">Matrículas Equipe:</th>
+//                             <td class="text-end" colspan="3">${data.matriculas.map((matricula, index) => `M${index + 1}: ${matricula}`).join(", ")}</td>
+//                         </tr>
+//                         <tr>
+//                             <th scope="row">Equipe:</th>
+//                             <td class="text-end" colspan="3">${data.equipe}</td>
+//                         </tr>
+//                         <tr>
+//                             <th scope="row">Placa:</th>
+//                             <td class="text-end" colspan="3">${data.placa}</td>
+//                         </tr>
+//                         <tr>
+//                             <th scope="row">Endereço:</th>
+//                             <td class="text-end" colspan="3">${data.localizacao}</td>
+//                         </tr>
+//                         <tr>
+//                             <th scope="row" colspan="4">Data e Hora:</th>
+//                             <td colspan="1" class="bg-body-tertiary">${formatarDataHora(timestamp)}</td>
+//                         </tr>
+//                     </tbody>
+//                 </table>
+//             </div>
+//         </div>
+//     `;
+// }
+
+// function formatarDataHora(timestamp) {
+//     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false };
+//     return new Date(timestamp).toLocaleString('pt-BR', options);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -260,31 +364,87 @@
 
 
 import { app, db } from "./config-firebase.js";
-import { addDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+import { addDoc, collection } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
 
-//--------------------------- VARIÁVEIS
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        // Obtenha os documentos da coleção "registrar"
+        const querySnapshot = await getDocs(collection(db, "registrar"));
+
+        // Exiba as informações na página
+        const historicoContainer = document.querySelector("#historico-container");
+        historicoContainer.innerHTML = ""; // Limpe o conteúdo anterior
+
+        querySnapshot.forEach((doc, index) => {
+            const data = doc.data();
+            const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
+            historicoContainer.innerHTML += infoCardHTML;
+        });
+    } catch (error) {
+        console.error("Erro ao obter informações:", error);
+    }
+});
+
+function criarCardInformacaoHTML(data, ordemServico, timestamp) {
+    return `
+        <div class="col-12 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center">
+            <div class="px-3">
+                <table class="table px-4">
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="bg-body-secondary rounded-start">Ordem de Serviço:</th>
+                            <td class="text-end bg-body-secondary rounded-end" colspan="">${ordemServico}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Líder:</th>
+                            <td class="text-end" colspan="5">${data.lider}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Matrícula Líder:</th>
+                            <td class="text-end" colspan="5">${data.matriculaLider}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Matrículas Equipe:</th>
+                            <td class="text-end" colspan="5">${data.matriculas.map((matricula, index) => `M${index + 1}: ${matricula}`).join(", ")}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Equipe:</th>
+                            <td class="text-end" colspan="5">${data.equipe}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Placa:</th>
+                            <td class="text-end" colspan="5">${data.placa}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Endereço:</th>
+                            <td class="text-end" colspan="5">${data.localizacao}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="4">Data e Hora:</th>
+                            <td colspan="1" class="bg-body-tertiary">${formatarDataHora(timestamp)}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+}
+
+function formatarDataHora(timestamp) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false };
+    return new Date(timestamp).toLocaleString('pt-BR', options);
+}
+
+//--------------------------- VARIÁVEIS 
 
 const formRegistro = document.querySelector("#form-registro");
 const btnEnviar = document.querySelector("#btnEnviar");
 const btnConfirmarModal = document.querySelector("#item");
 let modalClicado = false;
 let alertAtivo = false;
-let numeroRegistro = 0; // Adicionado para contar o número de registros
-
-document.addEventListener("DOMContentLoaded", async () => {
-    try {
-        // Obtenha a contagem atual de registros
-        const querySnapshot = await getDocs(collection(db, "contadores"));
-        querySnapshot.forEach((doc) => {
-            const data = doc.data();
-            numeroRegistro = data.numeroRegistro || 0;
-        });
-    } catch (error) {
-        console.error("Erro ao obter contagem de registros:", error);
-    }
-});
 
 // -------------------- AUTENTICAÇÃO DO MODAL
+
 btnConfirmarModal.addEventListener("click", () => {
     const meuModal = new bootstrap.Modal(document.getElementById("meuModal"));
     meuModal.hide();
@@ -292,6 +452,7 @@ btnConfirmarModal.addEventListener("click", () => {
 });
 
 // -------------------- DADOS DO FORMULÁRIO
+
 btnEnviar.addEventListener("click", async (evento) => {
     evento.preventDefault();
 
@@ -301,6 +462,7 @@ btnEnviar.addEventListener("click", async (evento) => {
     }
 
     // ------------------------- CAMPOS FALTANDO
+
     const lider = document.getElementById("lider").value;
     const matriculaLider = document.getElementById("matriculaLider").value;
     const placa = document.getElementById("placa").value;
@@ -330,26 +492,15 @@ btnEnviar.addEventListener("click", async (evento) => {
         return;
     }
 
+    // ---------------------------------- Adicionar documento ao Firestore
     try {
-        // Obter localização
-        const localizacao = await obterLocalizacao();
-
-        // Incrementar número de registro
-        numeroRegistro += 1;
-
-        // Atualizar contagem no Firebase
-        await addDoc(collection(db, "contadores"), { numeroRegistro });
-
-        // Adicionar documento ao Firestore
         const docRef = await addDoc(collection(db, "registrar"), {
-            numeroRegistro: numeroRegistro,
             lider,
             matriculaLider,
             placa,
             equipe,
             matriculas: [matricula1, matricula2, matricula3, matricula4, matricula5, matricula6],
             ordemServico,
-            localizacao,
             timestamp: new Date().toISOString(),
         });
 
@@ -363,4 +514,124 @@ btnEnviar.addEventListener("click", async (evento) => {
     }
 });
 
-// Restante do código permanece o mesmo
+// --------------------------------AUTENTICAÇÕES
+
+const liderInput = document.querySelector("#lider");
+
+function exibirLider() {
+    if (liderInput.value == "") {
+        liderInput.style.border = "1px solid red";
+    } else {
+        liderInput.style.border = "1px solid green";
+    }
+}
+
+liderInput.addEventListener("blur", exibirLider);
+
+const matriculasInputs = [
+    document.querySelector("#matricula1"),
+    document.querySelector("#matricula2"),
+    document.querySelector("#matricula3"),
+    document.querySelector("#matricula4"),
+    document.querySelector("#matricula5"),
+    document.querySelector("#matricula6"),
+    document.querySelector("#matriculaLider")
+];
+
+function exibirMatriculas(event) {
+    const input = event.target;
+
+    if (input.value == "") {
+        input.style.border = "1px solid red";
+    } else {
+        input.style.border = "2px solid green";
+    }
+}
+
+matriculasInputs.forEach((input) => {
+    input.addEventListener("blur", exibirMatriculas);
+
+    function limitarComprimento(event) {
+        const input = event.target;
+        const valor = input.value;
+
+        if (valor.length > 5) {
+            input.value = valor.slice(0, 5); // Limita a 5 caracteres
+        }
+    }
+
+    matriculasInputs.forEach((input) => {
+        input.addEventListener("input", limitarComprimento);
+    });
+});
+
+let placaInput = document.querySelector("#placa");
+
+function exibirPlaca() {
+    if (placaInput.value == "") {
+        placaInput.style.border = "1px solid red";
+    } else {
+        placaInput.style.border = "1px solid green";
+    }
+}
+
+placaInput.addEventListener("blur", exibirPlaca);
+
+let equipeInput = document.querySelector("#equipe");
+
+function exibirEquipe() {
+    if (equipeInput.value == "") {
+        equipeInput.style.border = "1px solid red";
+    } else {
+        equipeInput.style.border = "1px solid green";
+    }
+}
+
+equipeInput.addEventListener("blur", exibirEquipe);
+
+let ordemServicoInput = document.querySelector("#ordemServico");
+
+function exibirOrdemServico() {
+    if (ordemServicoInput.value == "") {
+        ordemServicoInput.style.border = "1px solid red";
+    } else {
+        ordemServicoInput.style.border = "1px solid green";
+    }
+}
+
+ordemServicoInput.addEventListener("blur", exibirOrdemServico);
+
+// Função para exibir alerta personalizado
+function exibirAlerta(mensagem) {
+    if (alertAtivo) {
+        return; // Evita a sobreposição de alertas
+    }
+
+    alertAtivo = true;
+
+    // Ícone de alerta da FontAwesome
+    const alertIcon = '<i class="fas fa-exclamation-triangle" style="font-size: 24px; color: #fff;"></i>';
+
+    // Adiciona a mensagem e botões ao corpo do documento (HTML)
+    const alertContainer = document.createElement('div');
+    alertContainer.innerHTML = `
+        <div class="text-center" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: #000; border: 2px solid #fff; border-radius: 9%; z-index: 9999; width: 80%;">
+            ${alertIcon}
+            <p style="font-size: 18px; font-weight: bold; color: #fff; ; padding: 5px 10px; display: inline-block;">${mensagem}</p>
+            <div style="margin-top: 10px; text-align: center;">
+                <button id="fecharAlert" style="font-size: 16px; font-weight: bold; padding: 8px 16px; background: #fff; color: #000; border: none; cursor: pointer;">Fechar</button>
+            </div>
+        </div>
+    `;
+    alertContainer.style.zIndex = '9999';
+    document.body.appendChild(alertContainer);
+
+    // Adiciona evento ao botão de fechar
+    const fecharButton = document.getElementById('fecharAlert');
+
+    fecharButton.addEventListener('click', () => {
+        // Lógica para lidar com o botão de fechar
+        document.body.removeChild(alertContainer);
+        alertAtivo = false;
+    });
+}

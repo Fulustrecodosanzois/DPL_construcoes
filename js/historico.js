@@ -112,10 +112,6 @@
 
 
 
-// ------------------- PLANO B
-
-
-
 
 
 
@@ -196,8 +192,9 @@
 
 
 
-import { db } from "./config-firebase.js";
-import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+import { app, db } from "./config-firebase.js";
+import { addDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
@@ -225,7 +222,7 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                 <table class="table px-4">
                     <tbody>
                         <tr>
-                            <th scope="row" class="bg-body-secondary rounded-start">Ordem de Serviço:</th>
+                            <th scope="row" class="bg-body-secondary rounded-start" colspan="5">Ordem de Serviço:</th>
                             <td class="text-end bg-body-secondary rounded-end" colspan="5">${ordemServico}</td>
                         </tr>
                         <tr>
@@ -233,11 +230,11 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                             <td class="text-end" colspan="5">${data.lider}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Matrícula Líder:</th>
+                            <th scope="row" colspan="5">Matrícula Líder:</th>
                             <td class="text-end" colspan="5">${data.matriculaLider}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Matrículas Equipe:</th>
+                            <th scope="row" colspan="5">Matrículas Equipe:</th>
                             <td class="text-end" colspan="5">${data.matriculas.map((matricula, index) => `M${index + 1}: ${matricula}`).join(", ")}</td>
                         </tr>
                         <tr>
@@ -254,7 +251,7 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                         </tr>
                         <tr>
                             <th scope="row" colspan="4">Data e Hora:</th>
-                            <td colspan="1" class="bg-body-tertiary">${formatarDataHora(timestamp)}</td>
+                            <td colspan="5" class="bg-body-tertiary text-end">${formatarDataHora(timestamp)}</td>
                         </tr>
                     </tbody>
                 </table>
