@@ -221,7 +221,7 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                 <table class="table px-4">
                     <tbody>
                         <tr>
-                            <th scope="row" class="bg-body-secondary rounded-start" colspan="5">Ordem de Serviço:</th>
+                            <th scope="row" class="bg-body-secondary rounded-start" colspan="3">Ordem de Serviço:</th>
                             <td class="text-end bg-body-secondary rounded-end" colspan="5">${ordemServico}</td>
                         </tr>
                         <tr>
@@ -233,8 +233,12 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                             <td class="text-end" colspan="5">${data.matriculaLider}</td>
                         </tr>
                         <tr>
-                            <th scope="row" colspan="5">Matrículas Equipe:</th>
-                            <td class="text-end" colspan="5">${data.matriculas.map((matricula, index) => `M${index + 1}: ${matricula}`).join(", ")}</td>
+                            <th scope="row" colspan="4">Matrículas Equipe:</th>
+                            <td class="text-end" colspan="4">
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    ${data.matriculas.map((matricula, index) => `<li>M${index + 1}: ${matricula}</li>`).join("")}
+                                </ul>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">Equipe:</th>
