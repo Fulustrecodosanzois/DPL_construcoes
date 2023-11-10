@@ -80,6 +80,10 @@
     color: rgb(173, 15, 15)
 }
 
+.text_regras{
+    font-weight:400;
+}
+
 /* ******************************  EXIBIR IMAGENS */
 
 #imageContainer {
