@@ -4,7 +4,7 @@ import { addDoc, collection } from "https://www.gstatic.com/firebasejs/10.5.0/fi
 //--------------------------- VARIÁVEIS 
 
 const formRegistro = document.querySelector("#form-registro");
-const btnEnviar = document.querySelector("#btnEnviar");
+const btnEnviar = document.querySelector("#btnResgistrar");
 const btnConfirmarModal = document.querySelector("#item");
 let modalClicado = false;
 let alertAtivo = false;
