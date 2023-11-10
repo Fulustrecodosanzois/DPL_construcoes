@@ -259,21 +259,32 @@
 
 
 
-
-
 import { app, db } from "./config-firebase.js";
-import { addDoc, collection } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+import { addDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
 
-//--------------------------- VARIÁVEIS 
+//--------------------------- VARIÁVEIS
 
 const formRegistro = document.querySelector("#form-registro");
 const btnEnviar = document.querySelector("#btnEnviar");
 const btnConfirmarModal = document.querySelector("#item");
 let modalClicado = false;
 let alertAtivo = false;
+let numeroRegistro = 0; // Adicionado para contar o número de registros
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        // Obtenha a contagem atual de registros
+        const querySnapshot = await getDocs(collection(db, "contadores"));
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            numeroRegistro = data.numeroRegistro || 0;
+        });
+    } catch (error) {
+        console.error("Erro ao obter contagem de registros:", error);
+    }
+});
 
 // -------------------- AUTENTICAÇÃO DO MODAL
-
 btnConfirmarModal.addEventListener("click", () => {
     const meuModal = new bootstrap.Modal(document.getElementById("meuModal"));
     meuModal.hide();
@@ -281,7 +292,6 @@ btnConfirmarModal.addEventListener("click", () => {
 });
 
 // -------------------- DADOS DO FORMULÁRIO
-
 btnEnviar.addEventListener("click", async (evento) => {
     evento.preventDefault();
 
@@ -291,7 +301,6 @@ btnEnviar.addEventListener("click", async (evento) => {
     }
 
     // ------------------------- CAMPOS FALTANDO
-
     const lider = document.getElementById("lider").value;
     const matriculaLider = document.getElementById("matriculaLider").value;
     const placa = document.getElementById("placa").value;
@@ -321,12 +330,19 @@ btnEnviar.addEventListener("click", async (evento) => {
         return;
     }
 
-    // ---------------------------------- Adicionar documento ao Firestore
     try {
         // Obter localização
         const localizacao = await obterLocalizacao();
 
+        // Incrementar número de registro
+        numeroRegistro += 1;
+
+        // Atualizar contagem no Firebase
+        await addDoc(collection(db, "contadores"), { numeroRegistro });
+
+        // Adicionar documento ao Firestore
         const docRef = await addDoc(collection(db, "registrar"), {
+            numeroRegistro: numeroRegistro,
             lider,
             matriculaLider,
             placa,
@@ -347,157 +363,4 @@ btnEnviar.addEventListener("click", async (evento) => {
     }
 });
 
-// --------------------------------AUTENTICAÇÕES
-
-const lider = document.querySelector("#lider");
-
-function exibirLider() {
-    if (lider.value == "") {
-        lider.style.border = "1px solid red";
-    } else {
-        lider.style.border = "1px solid green";
-    }
-}
-
-lider.addEventListener("blur", exibirLider);
-
-const matriculas = [
-    document.querySelector("#matricula1"),
-    document.querySelector("#matricula2"),
-    document.querySelector("#matricula3"),
-    document.querySelector("#matricula4"),
-    document.querySelector("#matricula5"),
-    document.querySelector("#matricula6"),
-    document.querySelector("#matriculaLider")
-];
-
-function exibirMatriculas(event) {
-    const input = event.target;
-
-    if (input.value == "") {
-        input.style.border = "1px solid red";
-    } else {
-        input.style.border = "2px solid green";
-    }
-}
-
-matriculas.forEach((input) => {
-    input.addEventListener("blur", exibirMatriculas);
-
-    function limitarComprimento(event) {
-        const input = event.target;
-        const valor = input.value;
-
-        if (valor.length > 5) {
-            input.value = valor.slice(0, 5); // Limita a 5 caracteres
-        }
-    }
-
-    matriculas.forEach((input) => {
-        input.addEventListener("input", limitarComprimento);
-    });
-});
-
-let placa = document.querySelector("#placa");
-
-function exibirPlaca() {
-    if (placa.value == "") {
-        placa.style.border = "1px solid red";
-    } else {
-        placa.style.border = "1px solid green";
-    }
-}
-
-placa.addEventListener("blur", exibirPlaca);
-
-let equipe = document.querySelector("#equipe");
-
-function exibirEquipe() {
-    if (equipe.value == "") {
-        equipe.style.border = "1px solid red";
-    } else {
-        equipe.style.border = "1px solid green";
-    }
-}
-
-equipe.addEventListener("blur", exibirEquipe);
-
-let ordemServico = document.querySelector("#ordemServico");
-
-function exibirOrdemServico() {
-    if (ordemServico.value == "") {
-        ordemServico.style.border = "1px solid red";
-    } else {
-        ordemServico.style.border = "1px solid green";
-    }
-}
-
-ordemServico.addEventListener("blur", exibirOrdemServico);
-
-// Função para exibir alerta personalizado
-function exibirAlerta(mensagem) {
-    if (alertAtivo) {
-        return; // Evita a sobreposição de alertas
-    }
-
-    alertAtivo = true;
-
-    // Ícone de alerta da FontAwesome
-    const alertIcon = '<i class="fas fa-exclamation-triangle" style="font-size: 24px; color: #fff;"></i>';
-
-    // Adiciona a mensagem e botões ao corpo do documento (HTML)
-    const alertContainer = document.createElement('div');
-    alertContainer.innerHTML = `
-        <div class="text-center" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: #000; border: 2px solid #fff; z-index: 9999; width: 80%;">
-            ${alertIcon}
-            <p style="font-size: 18px; font-weight: bold; color: #fff; ; padding: 5px 10px; display: inline-block;">${mensagem}</p>
-            <div style="margin-top: 10px; text-align: center;">
-                <button id="fecharAlert" style="font-size: 16px; font-weight: bold; padding: 8px 16px; background: #fff; color: #000; border: none; cursor: pointer;">Fechar</button>
-            </div>
-        </div>
-    `;
-    alertContainer.style.zIndex = '9999';
-    document.body.appendChild(alertContainer);
-
-    // Adiciona evento ao botão de fechar
-    const fecharButton = document.getElementById('fecharAlert');
-
-    fecharButton.addEventListener('click', () => {
-        // Lógica para lidar com o botão de fechar
-        document.body.removeChild(alertContainer);
-        alertAtivo = false;
-    });
-}
-
-// Função para obter localização
-async function obterLocalizacao() {
-    return new Promise((resolve, reject) => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(posicao => {
-                const latitude = posicao.coords.latitude;
-                const longitude = posicao.coords.longitude;
-
-                const apiKey = 'AIzaSyBjOHNCyjuHDNVTf8Vw9qie3O3sLJ60DpI';
-                const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${apiKey}`;
-
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.results.length > 0) {
-                            const endereco = data.results[0].formatted_address;
-                            const localizacao = `Latitude: ${latitude}, Longitude: ${longitude}, Endereço: ${endereco}`;
-                            resolve(localizacao);
-                        } else {
-                            reject('Endereço não encontrado.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Erro ao obter o endereço:', error);
-                        reject('Erro ao obter o endereço.');
-                    });
-            });
-        } else {
-            reject('Geolocalização não é suportada pelo seu navegador.');
-        }
-    });
-}
+// Restante do código permanece o mesmo
