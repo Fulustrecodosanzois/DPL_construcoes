@@ -77,7 +77,8 @@
 .text_destaque2{
     font-size: 35px;
     font-weight:bolder;
-    color: rgb(173, 15, 15)
+    color: rgb(173, 15, 15);
+    text-transform: uppercase;
 }
 
 .text_regras{
