@@ -407,9 +407,9 @@ btnAvancar.addEventListener("click", async (evento) => {
   evento.preventDefault();
 
   if (!confir.checked) {
-    alert("Você deve confirmar antes de prosseguir.");
+    alert("VOCÊ DEVE CONFIRMAR ANTES DE PROSSEGUIR.");
   } else if (images.length === 0) {
-    alert("Você deve inserir pelo menos uma imagem para prosseguir.");
+    alert("VOCÊ DEVE INSERIR PELO MENOS UMA IMAGEM PARA PROSSEGUIR.");
   } else {
     // Armazenar temporariamente as imagens
     temporaryImageStorage.push({ temporaryImageName, images });
