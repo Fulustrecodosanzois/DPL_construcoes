@@ -356,7 +356,6 @@ btnEnviar.addEventListener("click", async (evento) => {
     }
 });
 
-// ... (restante do código para manipular campos, exibir alertas, etc.)
 
 // Função para obter a localização
 async function obterLocalizacao() {

@@ -267,3 +267,21 @@ function formatarDataHora(timestamp) {
     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false };
     return new Date(timestamp).toLocaleString('pt-BR', options);
 }
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const querySnapshot = await getDocs(collection(db, "registrar"), query => orderBy(query, 'timestamp', 'desc'));
+
+        const informacoesDiv = document.getElementById("informacoes");
+        informacoesDiv.innerHTML = "";
+
+        querySnapshot.forEach((doc, index) => {
+            const data = doc.data();
+            const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
+            informacoesDiv.innerHTML += infoCardHTML;
+        });
+    } catch (error) {
+        console.error("Erro ao obter informações:", error);
+    }
+});
