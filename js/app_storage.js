@@ -9,6 +9,8 @@ const btnConfirmarModal = document.querySelector("#item");
 let modalClicado = false;
 let alertAtivo = false;
 
+let dadosEquipe = {}
+
 // -------------------- AUTENTICAÇÃO DO MODAL
 
 btnConfirmarModal.addEventListener("click", () => {
@@ -63,7 +65,7 @@ btnEnviar.addEventListener("click", async (evento) => {
         // Obter localização e adicionar ao documento
         const localizacao = await obterLocalizacao();
 
-        const docRef = await addDoc(collection(db, "registrar"), {
+        dadosEquipe = {
             lider,
             matriculaLider,
             placa,
@@ -71,10 +73,11 @@ btnEnviar.addEventListener("click", async (evento) => {
             matriculas: [matricula1, matricula2, matricula3, matricula4, matricula5, matricula6],
             ordemServico,
             localizacao,
-            timestamp: new Date().toISOString(),
-        });
+            timestamp: new Date().toISOString()
 
-        console.log("Documento adicionado com ID: ", docRef.id);
+        }
+
+        localStorage.setItem('dadosEquipe',JSON.stringify(dadosEquipe))
 
         // Redirecionar para outra página após o envio bem-sucedido
         window.location.href = "./desligar1.html";
@@ -240,6 +243,7 @@ function exibirAlerta(mensagem) {
         alertAtivo = false;
     });
 }
+
 
 
 

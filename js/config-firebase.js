@@ -5,6 +5,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
 const firebaseConfig = {
     apiKey: "AIzaSyA8IXeTor3yWYfVZ5qa92KKR40nulr2FAM",
     authDomain: "dplconstrucao-cfd1a.firebaseapp.com",
@@ -13,6 +14,8 @@ const firebaseConfig = {
     messagingSenderId: "152997578042",
     appId: "1:152997578042:web:e4d03296e4eae04607fc03"
 };
+
+
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
