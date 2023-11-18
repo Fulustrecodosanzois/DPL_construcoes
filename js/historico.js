@@ -86,13 +86,14 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                     <div class="col">
                         <h5 class="text-center">Imagens da equipe:</h5>
                         <div class="d-flex justify-content-center">
-                            <div class="text-center flex-row">
+                            <div class="text-center flex-row img-thumbnail">
                                 ${imagensHTML}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        
         </div>
     `;
 }
