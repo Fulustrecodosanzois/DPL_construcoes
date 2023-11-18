@@ -5,6 +5,7 @@ import { addDoc, collection} from "https://www.gstatic.com/firebasejs/10.5.0/fir
 
 let btnAvancar = document.querySelector("#btnAvancar");
 let confir = document.querySelector(".confirm");
+let confirm = document.querySelector(".etapa");
 let imageContainer = document.getElementById("imageContainer");
 
 let loader = document.querySelector("#loader")
@@ -109,11 +110,16 @@ btnAvancar.addEventListener("click", async (evento) => {
     temporaryImageStorage.push({ temporaryImageName, images });
     
     store()// Armazenando no Firestore Storage
-
-    
-
   }
+  
+  etapa.addEventListener("click", function() {
+    if (this.checked) {
+      confir.checked = true; 
+      images.length = 0;   
+    }
+  });
 });
+
 
 
 function store(){
@@ -142,6 +148,7 @@ function store(){
                     if (confirmEnvio) {
                       alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                       // Redirecionar para a página inicial após o envio bem-sucedido
+                     
                       cadastrarDados()
                       // window.location.href = "../index.html";
                     }
