@@ -79,13 +79,19 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                             <th scope="row" colspan="4">Data e Hora:</th>
                             <td colspan="5" class="bg-body-tertiary text-end">${formatarDataHora(timestamp)}</td>
                         </tr>
-
-                        <tr>
-                            <th scope="row" colspan="5">Imagens da equipe:</th>
-                            <td class="text-end" colspan="1">${imagensHTML}</td>
-                        </tr>
                     </tbody>
                 </table>
+                
+                <div class="row">
+                    <div class="col">
+                        <h5 class="text-center">Imagens da equipe:</h5>
+                        <div class="d-flex justify-content-center">
+                            <div class="text-center flex-row">
+                                ${imagensHTML}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     `;
