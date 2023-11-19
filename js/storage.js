@@ -5,7 +5,6 @@ import { addDoc, collection} from "https://www.gstatic.com/firebasejs/10.5.0/fir
 
 let btnAvancar = document.querySelector("#btnAvancar");
 let confir = document.querySelector(".confirm");
-let confirm = document.querySelector(".etapa");
 let imageContainer = document.getElementById("imageContainer");
 
 let loader = document.querySelector("#loader")
@@ -111,6 +110,7 @@ btnAvancar.addEventListener("click", async (evento) => {
     
     store()// Armazenando no Firestore Storage
   }
+  
 });
 
 
