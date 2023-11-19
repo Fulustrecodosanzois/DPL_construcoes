@@ -44,20 +44,20 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                 <table class="table px-4">
                     <tbody>
                         <tr>
-                            <th scope="row" class="bg-body-secondary rounded-start" colspan="3">Ordem de Serviço:</th>
-                            <td class="text-end bg-body-secondary rounded-end" colspan="5">${ordemServico}</td>
+                            <th scope="row" class="bg-success rounded-start text-white" colspan="5">Ordem de Serviço:</th>
+                            <td class="text-end bg-success rounded-end text-white fw-bolder" colspan="5">${ordemServico}</td>
                         </tr>
                         <tr>
                             <th scope="row">Líder:</th>
-                            <td class="text-end" colspan="5">${data.lider}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.lider}</td>
                         </tr>
                         <tr>
                             <th scope="row" colspan="5">Matrícula Líder:</th>
-                            <td class="text-end" colspan="5">${data.matriculaLider}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.matriculaLider}</td>
                         </tr>
                         <tr>
                             <th scope="row" colspan="4">Matrículas Equipe:</th>
-                            <td class="text-end" colspan="4">
+                            <td class="text-end bg-body-tertiary" colspan="5">
                                 <ul style="list-style: none; padding: 0; margin: 0;">
                                     ${data.matriculas.map((matricula, index) => `<li>M${index + 1}: ${matricula}</li>`).join("")}
                                 </ul>
@@ -65,15 +65,15 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
                         </tr>
                         <tr>
                             <th scope="row">Equipe:</th>
-                            <td class="text-end" colspan="5">${data.equipe}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.equipe}</td>
                         </tr>
                         <tr>
                             <th scope="row">Placa:</th>
-                            <td class="text-end" colspan="5">${data.placa}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.placa}</td>
                         </tr>
                         <tr>
                             <th scope="row">Endereço:</th>
-                            <td class="text-end" colspan="5">${data.localizacao}</td>
+                            <td class="text-end bg-body-tertiary" colspan="5">${data.localizacao}</td>
                         </tr>
                         <tr>
                             <th scope="row" colspan="4">Data e Hora:</th>
