@@ -111,13 +111,6 @@ btnAvancar.addEventListener("click", async (evento) => {
     
     store()// Armazenando no Firestore Storage
   }
-  
-  etapa.addEventListener("click", function() {
-    if (this.checked) {
-      confir.checked = true; 
-      images.length = 0;   
-    }
-  });
 });
 
 
