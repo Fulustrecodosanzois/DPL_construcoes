@@ -110,9 +110,7 @@ btnAvancar.addEventListener("click", async (evento) => {
     
     store()// Armazenando no Firestore Storage
   }
-  
 });
-
 
 
 function store(){
@@ -141,7 +139,6 @@ function store(){
                     if (confirmEnvio) {
                       alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                       // Redirecionar para a página inicial após o envio bem-sucedido
-                     
                       cadastrarDados()
                       // window.location.href = "../index.html";
                     }
@@ -206,7 +203,7 @@ async function cadastrarDados(){
     console.log(resultado)
       await addDoc(collection(db, "registrar"), resultado);
       //console.log("Document criado com ID: ", docRef.id);
-      alert("Dados cadastrados com sucesso");
+      alert("DADOS CADASTRADOS COM SUCESSO!");
       
       localStorage.removeItem("dadosEquipe")
       localStorage.removeItem("desligar")
@@ -223,3 +220,26 @@ async function cadastrarDados(){
   
   //getDados() // chamando função para atualizar lista de dados ao criar novo contato
 }
+
+
+// // Validar os campos e inserir a imagem no Firebase Storage
+// btnAvancar.addEventListener("click", async (evento) => {
+//   evento.preventDefault();
+
+//   // Verificar se o input com a classe "confirmed" está marcado
+//   const confirmed = evento.target.checked
+//   if (!confirmed) {
+//     // Se não estiver confirmado, realizar as verificações normais
+//     if (!confir.checked) {
+//       alert("VOCÊ DEVE CONFIRMAR ANTES DE PROSSEGUIR.");
+//     } else if (images.length === 0) {
+//       alert("VOCÊ DEVE INSERIR PELO MENOS UMA IMAGEM PARA PROSSEGUIR.");
+//     } else {
+//       temporaryImageStorage.push({ temporaryImageName, images });
+//       store();
+//     }
+//   } else {
+//     // Se estiver confirmado, não realizar as verificações obrigatórias
+//     store();
+//   }
+// });
