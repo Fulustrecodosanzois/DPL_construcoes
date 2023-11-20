@@ -137,10 +137,9 @@ function store(){
 
                     const confirmEnvio = confirm("DESEJA REALMENTE ENVIAR O REGISTRO?");
                     if (confirmEnvio) {
-                      cadastrarDados()
                       alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                       // Redirecionar para a página inicial após o envio bem-sucedido
-                      // cadastrarDados()
+                      cadastrarDados()
                       window.location.href = "../index.html";
                     }
                   } catch (error) {
