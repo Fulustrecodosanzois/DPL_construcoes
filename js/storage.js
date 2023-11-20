@@ -142,7 +142,9 @@ function store(){
                       // Redirecionar para a página inicial após o envio bem-sucedido
                       cadastrarDados()
                       alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
-                      
+                      setTimeout(() => {
+                        window.location.href = "../index.html";
+                      }, 3000);
                     }
                   } catch (error) {
                     console.error("Erro ao enviar imagem para o Firebase:", error);
@@ -214,10 +216,6 @@ async function cadastrarDados(){
       localStorage.removeItem("aterrar")
       localStorage.removeItem("testar")
       localStorage.removeItem("proteger")
-
-      
-
-
 
   } catch (e) {
       console.error("Erro ao criar o documento: ", e);
