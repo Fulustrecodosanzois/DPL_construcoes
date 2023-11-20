@@ -206,7 +206,6 @@ async function cadastrarDados(){
       await addDoc(collection(db, "registrar"), resultado);
       //console.log("Document criado com ID: ", docRef.id);
       
-      
       localStorage.removeItem("dadosEquipe")
       localStorage.removeItem("desligar")
       localStorage.removeItem("bloquear")
@@ -215,9 +214,9 @@ async function cadastrarDados(){
       localStorage.removeItem("testar")
       localStorage.removeItem("proteger")
       alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
-      setTimeout(()=>{
-        window.location.href="../..";
-      },1500)
+      window.location.href="../index.html"
+      
+      
 
 
 
