@@ -202,7 +202,6 @@ async function cadastrarDados(){
   try {
     console.log(resultado)
       await addDoc(collection(db, "registrar"), resultado);
-      // window.location.href = "../index.html";
       //console.log("Document criado com ID: ", docRef.id);
       alert("DADOS CADASTRADOS COM SUCESSO!");
       
