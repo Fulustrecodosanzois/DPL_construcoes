@@ -205,7 +205,7 @@ async function cadastrarDados(){
     console.log(resultado)
       await addDoc(collection(db, "registrar"), resultado);
       //console.log("Document criado com ID: ", docRef.id);
-      alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
+      
       
       localStorage.removeItem("dadosEquipe")
       localStorage.removeItem("desligar")
@@ -214,7 +214,7 @@ async function cadastrarDados(){
       localStorage.removeItem("aterrar")
       localStorage.removeItem("testar")
       localStorage.removeItem("proteger")
-
+      alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
       setTimeout(()=>{
         window.location.href="../..";
       },1500)
