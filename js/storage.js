@@ -216,7 +216,7 @@ async function cadastrarDados(){
       localStorage.removeItem("proteger")
 
       setTimeout(()=>{
-        window.location.href="../..";
+        window.location.href="../index.html";
       },3000)
 
 
