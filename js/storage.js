@@ -141,7 +141,7 @@ function store(){
                       alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                       // Redirecionar para a página inicial após o envio bem-sucedido
                       // cadastrarDados()
-                      // window.location.href = "../index.html";
+                      window.location.href = "../index.html";
                     }
                   } catch (error) {
                     console.error("Erro ao enviar imagem para o Firebase:", error);
@@ -203,7 +203,7 @@ async function cadastrarDados(){
   try {
     console.log(resultado)
       await addDoc(collection(db, "registrar"), resultado);
-      window.location.href = "../index.html";
+      // window.location.href = "../index.html";
       //console.log("Document criado com ID: ", docRef.id);
       alert("DADOS CADASTRADOS COM SUCESSO!");
       
