@@ -140,7 +140,7 @@ function store(){
                       alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                       // Redirecionar para a página inicial após o envio bem-sucedido
                       cadastrarDados()
-                      // window.location.href = "../index.html";
+                      window.location.href = "../index.html";
                     }
                   } catch (error) {
                     console.error("Erro ao enviar imagem para o Firebase:", error);
