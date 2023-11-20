@@ -139,10 +139,12 @@ function store(){
 
                     const confirmEnvio = confirm("DESEJA REALMENTE ENVIAR O REGISTRO?");
                     if (confirmEnvio) {
-                      alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                       // Redirecionar para a página inicial após o envio bem-sucedido
                       cadastrarDados()
-                      //window.location.href = "../index.html";
+                      alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
+                      setTimeout(()=>{
+                        window.location.href="../index.html";
+                      },2000)
                     }
                   } catch (error) {
                     console.error("Erro ao enviar imagem para o Firebase:", error);
@@ -215,9 +217,7 @@ async function cadastrarDados(){
       localStorage.removeItem("testar")
       localStorage.removeItem("proteger")
 
-      setTimeout(()=>{
-        window.location.href="../index.html";
-      },3000)
+      
 
 
 
