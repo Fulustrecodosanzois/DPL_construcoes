@@ -217,7 +217,7 @@ async function cadastrarDados(){
 
       setTimeout(()=>{
         window.location.href="../..";
-      },3000)
+      },2000)
 
 
 
