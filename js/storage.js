@@ -140,9 +140,12 @@ function store(){
                     const confirmEnvio = confirm("DESEJA REALMENTE ENVIAR O REGISTRO?");
                     if (confirmEnvio) {
                       cadastrarDados()
-                      
+                      alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                       // Redirecionar para a página inicial após o envio bem-sucedido
-                      //window.location.href = "../index.html";
+                      
+                      setTimeout(()=> {
+                        window.location.href = "../index.html";
+                      }, 2000)
                     }
                   } catch (error) {
                     console.error("Erro ao enviar imagem para o Firebase:", error);
@@ -213,13 +216,9 @@ async function cadastrarDados(){
       localStorage.removeItem("aterrar")
       localStorage.removeItem("testar")
       localStorage.removeItem("proteger")
-      alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
-      window.location.href="../index.html"
+
+     
       
-      
-
-
-
   } catch (e) {
       console.error("Erro ao criar o documento: ", e);
   }
