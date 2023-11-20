@@ -140,7 +140,7 @@ function store(){
                     const confirmEnvio = confirm("DESEJA REALMENTE ENVIAR O REGISTRO?");
                     if (confirmEnvio) {
                       cadastrarDados()
-                      alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
+                      
                       // Redirecionar para a página inicial após o envio bem-sucedido
                       //window.location.href = "../index.html";
                     }
@@ -205,7 +205,7 @@ async function cadastrarDados(){
     console.log(resultado)
       await addDoc(collection(db, "registrar"), resultado);
       //console.log("Document criado com ID: ", docRef.id);
-      alert("Dados cadastrados com sucesso");
+      alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
       
       localStorage.removeItem("dadosEquipe")
       localStorage.removeItem("desligar")
@@ -217,7 +217,7 @@ async function cadastrarDados(){
 
       setTimeout(()=>{
         window.location.href="../..";
-      },2000)
+      },1500)
 
 
 
