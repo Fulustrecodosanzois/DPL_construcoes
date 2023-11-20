@@ -137,10 +137,11 @@ function store(){
 
                     const confirmEnvio = confirm("DESEJA REALMENTE ENVIAR O REGISTRO?");
                     if (confirmEnvio) {
+                      cadastrarDados()
                       alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                       // Redirecionar para a página inicial após o envio bem-sucedido
-                      cadastrarDados()
-                      window.location.href = "../index.html";
+                      // cadastrarDados()
+                      // window.location.href = "../index.html";
                     }
                   } catch (error) {
                     console.error("Erro ao enviar imagem para o Firebase:", error);
