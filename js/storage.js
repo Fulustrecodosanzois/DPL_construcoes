@@ -1,4 +1,3 @@
-
 import { app,db } from "./config-firebase.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
 import { addDoc, collection} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
@@ -215,6 +214,11 @@ async function cadastrarDados(){
       localStorage.removeItem("aterrar")
       localStorage.removeItem("testar")
       localStorage.removeItem("proteger")
+
+      setTimeout(()=>{
+        window.location.href="../..";
+      },3000)
+
 
 
   } catch (e) {
