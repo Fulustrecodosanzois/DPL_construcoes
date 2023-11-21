@@ -127,6 +127,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
+// Captura o elemento de input
+const inputBusca = document.getElementById("inputBusca");
+
+// Adiciona um ouvinte de evento para capturar a entrada do usuário
+inputBusca.addEventListener("input", function () {
+    const textoBuscado = inputBusca.value.toLowerCase(); // Obtém o texto de busca em letras minúsculas
+
+    // Seleciona todos os cards de informações
+    const cardsInformacao = document.querySelectorAll(".col-12.py-3.mt-4.shadow.rounded-4");
+
+    cardsInformacao.forEach((card) => {
+        // Encontra o texto da Ordem de Serviço dentro do card
+        const textoOrdemServico = card.querySelector(".bg-success.rounded-start.text-white").nextElementSibling.textContent.toLowerCase();
+
+        // Verifica se o texto de busca está presente no texto da Ordem de Serviço
+        if (textoOrdemServico.includes(textoBuscado)) {
+            card.style.display = ""; // Mostra o card se o texto for encontrado
+        } else {
+            card.style.display = "none"; // Oculta o card se o texto não for encontrado
+        }
+    });
+});
 
 
 
