@@ -80,7 +80,7 @@ btnEnviar.addEventListener("click", async (evento) => {
         localStorage.setItem('dadosEquipe',JSON.stringify(dadosEquipe))
 
         // Redirecionar para outra página após o envio bem-sucedido
-        window.location.href = "./desligar1.html";
+        window.location.href = "./apr.html";
     } catch (error) {
         console.error("Erro ao adicionar documento: ", error);
         exibirAlerta("Ocorreu um erro. Por favor, tente novamente.");

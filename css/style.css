@@ -35,6 +35,12 @@
 .fonte {
     color: #436b5c;
 }
+.fonte_tam {
+    font-size: 22px;
+}
+.fonte_tam2 {
+    font-size: 14px;
+}
 
 .btn_menu {
     padding: 20px;
