@@ -92,27 +92,6 @@ function displayImages() {
 
 }
 
-// // Validar os campos e inserir a imagem no Firebase Storage
-// btnAvancar.addEventListener("click", async (evento) => {
-//   evento.preventDefault();
-
-//   if (!confir.checked) {
-//     alert("VOCÊ DEVE CONFIRMAR ANTES DE PROSSEGUIR.");
-//   } else if (images.length === 0) {
-//     alert("VOCÊ DEVE INSERIR PELO MENOS UMA IMAGEM PARA PROSSEGUIR.");
-//   } else {
-//     // Armazenar temporariamente as imagens
-//     temporaryImageStorage.push({ temporaryImageName, images });
-
-//     store()// Armazenando no Firestore Storage
-
-
-
-//   }
-// });
-
-
-
 
 btnAvancar.addEventListener("click", async (evento) => {
   evento.preventDefault();
@@ -140,19 +119,6 @@ btnAvancar.addEventListener("click", async (evento) => {
     }
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
