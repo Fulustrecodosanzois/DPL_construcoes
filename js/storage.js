@@ -94,6 +94,7 @@ function displayImages() {
 
 
 
+
 btnAvancar.addEventListener("click", async (evento) => {
   evento.preventDefault();
 
@@ -120,9 +121,6 @@ btnAvancar.addEventListener("click", async (evento) => {
     }
   }
 });
-
-
-
 
 
 
