@@ -92,24 +92,6 @@ function displayImages() {
 
 }
 
-// Validar os campos e inserir a imagem no Firebase Storage
-btnAvancar.addEventListener("click", async (evento) => {
-  evento.preventDefault();
-
-  if (!confir.checked) {
-    alert("VOCÊ DEVE CONFIRMAR ANTES DE PROSSEGUIR.");
-  } else if (images.length === 0) {
-    alert("VOCÊ DEVE INSERIR PELO MENOS UMA IMAGEM PARA PROSSEGUIR.");
-  } else {
-    // Armazenar temporariamente as imagens
-    temporaryImageStorage.push({ temporaryImageName, images });
-
-    store()// Armazenando no Firestore Storage
-
-
-
-  }
-});
 
 
 btnAvancar.addEventListener("click", async (evento) => {
@@ -140,6 +122,10 @@ btnAvancar.addEventListener("click", async (evento) => {
 });
 
 
+
+
+
+
 function store() {
   loader.classList.replace("d-none", "d-block")
   try {
@@ -159,7 +145,7 @@ function store() {
           localStorage.setItem(nomeImagem, JSON.stringify(dadosImagem))// salvando o link da imagem no localstorage
 
           // Verificar se é a sexta página (proteger6.html)
-          if (window.location.href.includes("proteger6")) {
+          if (window.location.href.includes("proteger6.html")) {
             try {
 
               const confirmEnvio = confirm("DESEJA REALMENTE ENVIAR O REGISTRO?");
