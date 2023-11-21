@@ -25,7 +25,7 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
     let imagensHTML = "";
 
     // Verifica se o documento possui URLs das seis imagens
-    const nomesImagens = ["Aterrar", "Bloquear", "Desligar", "Proteger", "Sinalizar", "Testar", "APR"];
+    const nomesImagens = ["ATERRAR", "BLOQUEAR", "DESLIGAR", "PROTEGER", "SINALIZAR", "TESTAR", "APR"];
 
     // Verifica se o documento possui URLs das sete imagens
     if (data.imgAterrar && data.imgBloquear && data.imgDesligar && data.imgProteger && data.imgSinalizar && data.imgTestar && data.imgApr) {
@@ -35,7 +35,7 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
         imagens.forEach((imagem, index) => {
             imagensHTML += `
                 <div>
-                    <p>${nomesImagens[index]}:</p>
+                    <p class="fw-bolder fonte">${nomesImagens[index]}:</p>
                     <img src="${imagem.url}" alt="${imagem.nome}" style="max-width: 200px; max-height: 200px; margin-bottom: 10px;">
                 </div>
             `;
