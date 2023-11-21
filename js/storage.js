@@ -112,8 +112,6 @@ function displayImages() {
 // });
 
 
-
-
 btnAvancar.addEventListener("click", async (evento) => {
   evento.preventDefault();
 
@@ -143,20 +141,6 @@ btnAvancar.addEventListener("click", async (evento) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function store() {
   loader.classList.replace("d-none", "d-block")
   try {
@@ -176,7 +160,7 @@ function store() {
           localStorage.setItem(nomeImagem, JSON.stringify(dadosImagem))// salvando o link da imagem no localstorage
 
           // Verificar se é a sexta página (proteger6.html)
-          if (window.location.href.includes("proteger6.html")) {
+          if (window.location.href.includes("proteger6")) {
             try {
 
               const confirmEnvio = confirm("DESEJA REALMENTE ENVIAR O REGISTRO?");
