@@ -105,7 +105,8 @@ btnAvancar.addEventListener("click", async (evento) => {
       alert("VOCÊ DEVE INSERIR PELO MENOS UMA IMAGEM PARA PROSSEGUIR.");
     } else {
       temporaryImageStorage.push({ temporaryImageName, images });
-      store(); // Armazenar no Firestore Storage
+      // store(); // Armazenar no Firestore Storage
+      console.log(images)
     }
   } else {
     // Se não estiver na página "apr.html", peça a confirmação do checked
@@ -119,8 +120,6 @@ btnAvancar.addEventListener("click", async (evento) => {
     }
   }
 });
-
-
 
 
 function store() {
