@@ -117,3 +117,26 @@
     background-color: yellow;
     
   }
+
+
+  /* ------------  BOTÃO VOLTA AO TOPO */
+
+
+  .btn-voltar-ao-topo {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #E55604;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .btn-voltar-ao-topo.show {
+    display: block;
+  }
+  

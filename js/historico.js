@@ -46,7 +46,7 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
 
 
     return `
-        <div class="col-12 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center">
+        <div class="col-12 py-3 mt-4 shadow rounded-4 d-flex justify-content-center align-content-center mb-5">
             <div class="px-3">
                 <table class="table px-4">
                     <tbody>
@@ -137,95 +137,47 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 //========================== PESQUISA
-document.addEventListener("DOMContentLoaded", async () => {
-    // ... (seu código existente)
+
+
+window.onscroll = function() {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("backToTopBtn").style.display = "block";
+  } else {
+    document.getElementById("backToTopBtn").style.display = "none";
+  }
+}
+
+// Quando o botão for clicado, role suavemente para o topo da página
+function topFunction() {
+  document.body.scrollTop = 0; // Para navegadores Safari
+  document.documentElement.scrollTop = 0; // Para outros navegadores
+}
+
+
+// ------------------------   VOLTA AO TOPO
+
+document.addEventListener("DOMContentLoaded", function() {
+    const btnVoltarAoTopo = document.getElementById("voltarAoTopoBtn");
   
-    // Referências aos elementos HTML
-    const searchForm = document.getElementById("searchForm");
-    const searchInput = document.getElementById("searchInput");
-    const informacoesDiv = document.getElementById("informacoes");
-  
-    // Função para realizar a pesquisa
-    const realizarPesquisa = async (termo) => {
-      informacoesDiv.innerHTML = ""; // Limpar resultados anteriores
-  
-      try {
-        const querySnapshot = await getDocs(
-          query(
-            collection(db, "registrar"),
-            orderBy("timestamp", "desc")
-          )
-        );
-  
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          const ordemServico = data.ordemServico.toLowerCase(); // Convertendo para minúsculas para pesquisa case-insensitive
-  
-          if (ordemServico.includes(termo.toLowerCase())) {
-            const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
-            informacoesDiv.innerHTML += infoCardHTML;
-          }
-        });
-  
-        if (informacoesDiv.innerHTML === "") {
-          informacoesDiv.innerHTML = "<p>Nenhum resultado encontrado.</p>";
-        }
-      } catch (error) {
-        console.error("Erro ao obter informações:", error);
-      }
-    };
-  
-    // Manipulador de evento para o formulário de pesquisa
-    searchForm.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Evitar o comportamento padrão de submit
-  
-      const termoPesquisa = searchInput.value.trim(); // Obter o valor do campo de pesquisa
-  
-      if (termoPesquisa !== "") {
-        realizarPesquisa(termoPesquisa); // Executar a função de pesquisa
+    // Exibir o botão quando a página for rolada para baixo
+    window.addEventListener("scroll", function() {
+      if (window.pageYOffset > 100) {
+        btnVoltarAoTopo.classList.add("show");
       } else {
-        informacoesDiv.innerHTML = ""; // Limpar resultados anteriores
-        // Se o campo de pesquisa estiver vazio, exibir todos os resultados novamente
-  
-        // Chame sua função existente para carregar todos os resultados novamente
-        // Seu código original para exibir todos os resultados após o carregamento do DOM
-        const querySnapshot = await getDocs(
-          query(
-            collection(db, "registrar"),
-            orderBy("timestamp", "desc")
-          )
-        );
-  
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
-          informacoesDiv.innerHTML += infoCardHTML;
-        });
+        btnVoltarAoTopo.classList.remove("show");
       }
     });
   
-    // Manipulador de evento para o campo de entrada de pesquisa (detecta a exclusão de conteúdo)
-    searchInput.addEventListener("input", async () => {
-      const termoPesquisa = searchInput.value.trim(); // Obter o valor do campo de pesquisa
-  
-      if (termoPesquisa === "") {
-        informacoesDiv.innerHTML = ""; // Limpar resultados anteriores
-  
-        // Chame sua função existente para carregar todos os resultados novamente
-        // Seu código original para exibir todos os resultados após o carregamento do DOM
-        const querySnapshot = await getDocs(
-          query(
-            collection(db, "registrar"),
-            orderBy("timestamp", "desc")
-          )
-        );
-  
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
-          informacoesDiv.innerHTML += infoCardHTML;
-        });
-      }
+    // Função para rolar suavemente até o topo da página ao clicar no botão
+    btnVoltarAoTopo.addEventListener("click", function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     });
   });
   
