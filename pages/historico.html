@@ -35,19 +35,34 @@
     </ul>
   </header>
 
+  <!-- --------------------------------------------BUSCA -->
+
+
+  <div class="container d-flex justify-content-center mt-5 col-10"> <!-- Div para centralizar -->
+    <div class="col-12 col-md-9"> <!-- Div com largura máxima e responsiva -->
+      <form id="searchForm" class="mb-3">
+        <div class="input-group">
+          <input type="text" id="searchInput" class="form-control shadow" placeholder="N° da Ordem de Serviço..." aria-label="Digite sua pesquisa..." aria-describedby="button-search">
+          <button type="submit" id="searchButton" class="btn fundo_laranja text-white fw-bolder shadow">Busca</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
   <!-- -------------------------------------------- REGISTROS -->
 
   <main class="mt-3 mb-5">
     <form action="mt-4 btnEnviar">
 
       <div class="text-center">
-        <h1 class="text-center fonte">Hístorico de Registros:</h1>
+        <h1 class="text-center fonte fw-bolder">Hístorico de Registros:</h1>
       </div>
 
       <section id="historico-container"></section>
     </form>
 
-    <div class="container mt-5">
+    <div class="container mt-3">
       <div id="informacoes"></div>
     </div>
 
@@ -58,7 +73,6 @@
       <small>DPL CONSTRUÇÕES LTDA</small>
     </nav>
   </footer>
-
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

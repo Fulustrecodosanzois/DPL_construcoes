@@ -132,3 +132,100 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Erro ao obter informações:", error);
     }
 });
+
+
+
+
+//========================== PESQUISA
+document.addEventListener("DOMContentLoaded", async () => {
+    // ... (seu código existente)
+  
+    // Referências aos elementos HTML
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+    const informacoesDiv = document.getElementById("informacoes");
+  
+    // Função para realizar a pesquisa
+    const realizarPesquisa = async (termo) => {
+      informacoesDiv.innerHTML = ""; // Limpar resultados anteriores
+  
+      try {
+        const querySnapshot = await getDocs(
+          query(
+            collection(db, "registrar"),
+            orderBy("timestamp", "desc")
+          )
+        );
+  
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const ordemServico = data.ordemServico.toLowerCase(); // Convertendo para minúsculas para pesquisa case-insensitive
+  
+          if (ordemServico.includes(termo.toLowerCase())) {
+            const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
+            informacoesDiv.innerHTML += infoCardHTML;
+          }
+        });
+  
+        if (informacoesDiv.innerHTML === "") {
+          informacoesDiv.innerHTML = "<p>Nenhum resultado encontrado.</p>";
+        }
+      } catch (error) {
+        console.error("Erro ao obter informações:", error);
+      }
+    };
+  
+    // Manipulador de evento para o formulário de pesquisa
+    searchForm.addEventListener("submit", async (event) => {
+      event.preventDefault(); // Evitar o comportamento padrão de submit
+  
+      const termoPesquisa = searchInput.value.trim(); // Obter o valor do campo de pesquisa
+  
+      if (termoPesquisa !== "") {
+        realizarPesquisa(termoPesquisa); // Executar a função de pesquisa
+      } else {
+        informacoesDiv.innerHTML = ""; // Limpar resultados anteriores
+        // Se o campo de pesquisa estiver vazio, exibir todos os resultados novamente
+  
+        // Chame sua função existente para carregar todos os resultados novamente
+        // Seu código original para exibir todos os resultados após o carregamento do DOM
+        const querySnapshot = await getDocs(
+          query(
+            collection(db, "registrar"),
+            orderBy("timestamp", "desc")
+          )
+        );
+  
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
+          informacoesDiv.innerHTML += infoCardHTML;
+        });
+      }
+    });
+  
+    // Manipulador de evento para o campo de entrada de pesquisa (detecta a exclusão de conteúdo)
+    searchInput.addEventListener("input", async () => {
+      const termoPesquisa = searchInput.value.trim(); // Obter o valor do campo de pesquisa
+  
+      if (termoPesquisa === "") {
+        informacoesDiv.innerHTML = ""; // Limpar resultados anteriores
+  
+        // Chame sua função existente para carregar todos os resultados novamente
+        // Seu código original para exibir todos os resultados após o carregamento do DOM
+        const querySnapshot = await getDocs(
+          query(
+            collection(db, "registrar"),
+            orderBy("timestamp", "desc")
+          )
+        );
+  
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const infoCardHTML = criarCardInformacaoHTML(data, data.ordemServico, data.timestamp);
+          informacoesDiv.innerHTML += infoCardHTML;
+        });
+      }
+    });
+  });
+  
