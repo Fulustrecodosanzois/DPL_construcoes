@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     // Exibir o botão quando a página for rolada para baixo
     window.addEventListener("scroll", function() {
-      if (window.pageYOffset > 100) {
+      if (window.pageYOffset > 1800) {
         btnVoltarAoTopo.classList.add("show");
       } else {
         btnVoltarAoTopo.classList.remove("show");
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
     btnVoltarAoTopo.addEventListener("click", function() {
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "auto"
       });
     });
   });
