@@ -447,7 +447,7 @@ function store() {
                     cadastrarDados();
                     alert("ENVIO BEM-SUCEDIDO! REDIRECIONANDO PARA A PÁGINA INICIAL!");
                     setTimeout(() => {
-                      window.location.href = "./menu.html";
+                      window.location.href = "../..";
                       // window.location.href = "../index.html";
                     }, 2000);
                   }
