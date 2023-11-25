@@ -7,12 +7,12 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-    apiKey: "AIzaSyA8IXeTor3yWYfVZ5qa92KKR40nulr2FAM",
-    authDomain: "dplconstrucao-cfd1a.firebaseapp.com",
-    projectId: "dplconstrucao-cfd1a",
-    storageBucket: "dplconstrucao-cfd1a.appspot.com",
-    messagingSenderId: "152997578042",
-    appId: "1:152997578042:web:e4d03296e4eae04607fc03"
+    apiKey: "AIzaSyBB1mXOMsMMx663z12CKgCwdIx-0GiAvFw",
+    authDomain: "dpl2-6b754.firebaseapp.com",
+    projectId: "dpl2-6b754",
+    storageBucket: "dpl2-6b754.appspot.com",
+    messagingSenderId: "332668407845",
+    appId: "1:332668407845:web:b368b4987cf9a281b02fcc"
 };
 
 
