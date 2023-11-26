@@ -32,3 +32,10 @@ function togglePasswordVisibility(...inputIds) {
 }
 
 
+function limitarTamanho(elemento, tamanhoMaximo) {
+    if (elemento.value.length > tamanhoMaximo) {
+        elemento.value = elemento.value.slice(0, tamanhoMaximo);
+    }
+}
+
+

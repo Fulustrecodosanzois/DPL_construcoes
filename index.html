@@ -14,7 +14,7 @@
         <img src="image/logo_navbar.jpeg" class="img-thumbnail" width="100">
         <div class="input-group mt-3">
             <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Matrícula</span>
-            <input type="number" class="form-control" maxlength="5" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="matricula-login" pattern="\d{1,5}">
+            <input type="number" class="form-control" maxlength="5" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="matricula-login" oninput="limitarTamanho(this, 5)">
         </div>
 
         <div class="input-group mt-3 mb-3">
@@ -55,6 +55,8 @@
         };
         firebase.initializeApp(firebaseConfig);
     </script>     -->
+
+    
 
 </body>
 </html>

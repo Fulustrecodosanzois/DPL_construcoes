@@ -15,7 +15,7 @@
     
         <div class="input-group mt-3">
             <span class="input-group-text fonte fw-bolder" id="inputGroup-sizing-default">Matrícula</span>
-            <input type="number" class="form-control" maxlength="5" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="matricula" pattern="\d{1,5}">
+            <input type="number" class="form-control" maxlength="5" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="matricula" oninput="limitarTamanho(this, 5)">
         </div>
     
         <div class="input-group mt-3">
@@ -35,7 +35,7 @@
         </div>
     
         <button class="mb-3 entrar" type="button" id="criarConta">Criar</button>
-        <a href="../..">Entrar</a>
+        <a href="../..">Voltar</a>
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
