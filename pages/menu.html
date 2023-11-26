@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="shortcut icon" href="../image/logo_navbar.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+  <title>DPL COSTRUÇÕES</title>
+</head>
+
+<body>
+
+  <!--------------------------------------------- NAVBAR -->
+
+  <header class="fundo_verde">
+    <nav class="navbar py-4 text-center flex-column shadow border-bottom border-light border-3">
+      <div class="">
+        <div class="d-flex">
+          <a href="#" class="mx-auto">
+            <img src="../image/logo_navbar.jpeg" alt="" class="img-thumbnail m-3 " width="100">
+          </a>
+          <h1 class="ms-3 mt-4 text-white slogan fw-bolder">REGRAS DE OURO</h1>
+
+          <div class="ms-3">
+            <button class=" btn fundo_laranja p-1 rounded-3 text-white fw-bolder m-3"  id="sair">Sair</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+  </header>
+
+  <!-- -------------------------------------------- MENU -->
+
+  <main class="">
+
+    <div class="container col-10">
+      <div class="d-flex flex-column align-content-center justify-content-center bloco">
+        <div class="">
+          <a href="./registrar.html"
+            class="btn fundo_laranja border-4 d-flex align-items-center justify-content-center flex-column fonte_menu fundo_laranja btn_menu text-white fw-bolder sombra_texto"
+            type="button">
+            <i class="fa-solid fa-list-ul mb-1" style="color: #ffffff;"></i>
+            <p>NOVO REGISTRO</p>
+          </a>
+        </div>
+        <div class="mt-5">
+          <a class="btn fundo_laranja border-4 d-flex align-items-center justify-content-center flex-column fonte_menu fundo_laranja btn_menu text-white fw-bolder sombra_texto"
+            type="button" href="historico.html">
+            <i class="fa-solid fa-clock-rotate-left pb-2"></i>
+            <p>HISTÓRICO</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="p-2"></div>
+  </main>
+
+  <!-- ------------------------------------------ RODAPÉ -->
+
+  <footer class="container-fluid fundo_verde p-2 text-center border-top border-light border-3">
+
+    <section class="mx-lg-5 d-flex justify-content-lg-between justify-content-center gap-lg-0 gap-3 flex-wrap">
+      <div class="mt-2">
+        <small class="text-white text-center mx-3">Todos os direitos reservados &copy; 2023</small>
+      </div>
+
+      <!---------------------------------------------- ÍCONES REDES SOCIAIS -->
+      <!--   
+        <div class="fs-4 d-flex gap-4">
+          <a href="https://www.youtube.com/" target="_blank" class="text-white"><i
+              class="fa-brands fa-youtube tube"></i></a>
+          <a href="https://twitter.com/i/flow/login?redirect_after_login=%2F" target="_blank" class="text-white"><i
+              class="fa-brands fa-twitter twitter"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" class="text-white"><i
+              class="fa-brands fa-instagram insta"></i></a>
+          <a href="https://www.tiktok.com/pt-BR/" target="_blank" class="text-white"><i
+              class="fa-brands fa-tiktok tiktok"></i></a>
+          <a href="https://www.facebook.com/" target="_blank" class="text-white"><i
+              class="fa-brands fa-facebook face"></i></a>
+        </div>
+      </section>
+     -->
+
+
+      <button type="button" class="btn fundo_laranja rounded text-white shadow-sm my-3" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        SOBRE OS DESENVOLVEDORES</button>
+
+  </footer>
+
+
+  <!--------------------------------------------------- Modal -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Desenvolvedores</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Robert Brito</td>
+                <td>rb2990783@gmail.com</td>
+              </tr>
+              <tr>
+                <td>Bruno Soares</td>
+                <td>brunooliveira.2115b@gmail</td>
+              </tr>
+              <tr>
+                <td>Werneck Colins</td>
+                <td>werneckcolins@outlook.com</td>
+              </tr>
+              <tr>
+                <td>Luciano Silva</td>
+                <td>monhangtech@gmail.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="../js/firebaseConfig.js"></script>
+  <script type="module" src="../js/appLogin.js"></script>
+
+</body>

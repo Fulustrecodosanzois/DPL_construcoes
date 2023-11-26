@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #9cc0b3;;
+}
+.fonte {
+    color: #436b5c;
+}
+.container {
+    max-width: 350px;
+    text-align: center;
+    padding: 20px;
+    background-color: #436b5c;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.clear{
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+.entrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+    padding: 8px;
+    background-color: #e55604;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+.entrar-google {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+.img-google{
+    width: 25px;
+}
+.entrar:hover {
+    background-color: #db5609;
+}
+.entrar-google:hover{
+    background-color: #dddddd;
+}
+.password{
+    position: relative;
+}
+.fa-eye{
+    z-index: 100;
+    position:absolute;
+    top: 9px;
+    left: 280px;
+    color: #436b5c;
+}
+
+.fa-eye-slash{
+    z-index: 100;
+    position:absolute;
+    top: 9px;
+    left: 280px;
+    color: #436b5c;
+}
