@@ -362,24 +362,60 @@ function handleFileSelect(evt) {
 
 
 
+// function displayImages() {
+//   const maxImages = 4; // Definindo o limite máximo de imagens
+//   const currentImageCount = imageContainer.children.length; // Contando imagens atualmente exibidas
+//   const remainingSlots = maxImages - currentImageCount; // Calculando espaços restantes para novas imagens
+
+//   if (selectedImages.length > remainingSlots) {
+//     // Verificando se o número de imagens a adicionar excede o espaço restante
+//     alert('Você atingiu o limite máximo de imagens (3).');
+//     return; // Impedindo a adição de mais imagens se exceder o limite
+//   }
+
+//   for (let i = 0; i < selectedImages.length; i++) {
+//     if (currentImageCount + i < maxImages) {
+//       // Verificando se ainda há espaço para adicionar novas imagens
+//       imageContainer.appendChild(selectedImages[i].imgElement);
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
 function displayImages() {
-  const maxImages = 4; // Definindo o limite máximo de imagens
-  const currentImageCount = imageContainer.children.length; // Contando imagens atualmente exibidas
-  const remainingSlots = maxImages - currentImageCount; // Calculando espaços restantes para novas imagens
-
-  if (selectedImages.length > remainingSlots) {
-    // Verificando se o número de imagens a adicionar excede o espaço restante
-    alert('Você atingiu o limite máximo de imagens (3).');
-    return; // Impedindo a adição de mais imagens se exceder o limite
+  while (imageContainer.firstChild) {
+    imageContainer.removeChild(imageContainer.firstChild);
   }
 
-  for (let i = 0; i < selectedImages.length; i++) {
-    if (currentImageCount + i < maxImages) {
-      // Verificando se ainda há espaço para adicionar novas imagens
-      imageContainer.appendChild(selectedImages[i].imgElement);
-    }
+  for (let i = 0; i < selectedImages.length; i++) { // Alteração: percorrendo o array de imagens selecionadas
+    imageContainer.appendChild(selectedImages[i].imgElement);
   }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
