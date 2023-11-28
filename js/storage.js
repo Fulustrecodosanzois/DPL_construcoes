@@ -240,26 +240,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ================================= ajustado com as 3 imagens
 
 
@@ -303,48 +283,46 @@ const storage = getStorage(app);
 const storageRef = ref(storage, `DPLimagem/${timestamp}`);// função ref() recebe a instância de armazenamento storage e uma string que representa o caminho para o local desejado, seria o nome do arquivo lá no storage. Estou salvando dentro de uma pasta chamado 'imagem/' e em seguida
 
 
-btnCamera.addEventListener('change', handleFileSelect)
 
 let selectedImages = []; // Alteração: alterando o nome da variável para evitar conflito com a variável 'images'
 
+btnCamera.addEventListener('change', handleFileSelect)
 
 //Essa função irá veirificar em qual página o usuário está atualmente, e irá criar um nome único para poder utilizar no localStorage, para poder salvar os dados das imagens localmente e depois salvar no firestore
 function verificaPagina() {
-
+  
   if (btnCamera.classList.contains("apr")) {
     nomeImagem = "apr"
-
+    
   } else if (btnCamera.classList.contains("desligar")) {
     nomeImagem = "desligar"
-
+    
   } else if (btnCamera.classList.contains("bloquear")) {
     nomeImagem = "bloquear"
-
+    
   } else if (btnCamera.classList.contains("sinalizar")) {
     nomeImagem = "sinalizar"
-
+    
   } else if (btnCamera.classList.contains("testar")) {
     nomeImagem = "testar"
-
+    
   } else if (btnCamera.classList.contains("aterrar")) {
     nomeImagem = "aterrar"
-
+    
   } else if (btnCamera.classList.contains("proteger")) {
     nomeImagem = "proteger"
-
+    
   }
-
+  
 }
 
-// Esta função irá pegar a imagem e fazer com que ela seja exibida na página
+
 function handleFileSelect(evt) {
   const files = evt.target.files;
 
   verificaPagina();
 
-  selectedImages = []; // Alteração: limpando o array de imagens selecionadas
-
-  for (let i = 0; i < Math.min(files.length, 3); i++) {
+  for (let i = 0; i < files.length; i++) {
     const file = files[i];
     const reader = new FileReader();
 
@@ -352,72 +330,17 @@ function handleFileSelect(evt) {
       const imgElement = document.createElement('img');
       imgElement.src = e.target.result;
       imgElement.alt = 'Imagem';
-      selectedImages.push({ file, imgElement }); // Alteração: armazenando cada imagem selecionada
-      displayImages(); // Alteração: chamando a função para exibir as imagens
+      
+      // Adicionando a imagem atual à lista de imagens selecionadas
+      selectedImages.push({ file, imgElement });
+
+      // Exibindo a imagem na página
+      imageContainer.appendChild(imgElement);
     };
 
     reader.readAsDataURL(file);
   }
 }
-
-
-
-// function displayImages() {
-//   const maxImages = 4; // Definindo o limite máximo de imagens
-//   const currentImageCount = imageContainer.children.length; // Contando imagens atualmente exibidas
-//   const remainingSlots = maxImages - currentImageCount; // Calculando espaços restantes para novas imagens
-
-//   if (selectedImages.length > remainingSlots) {
-//     // Verificando se o número de imagens a adicionar excede o espaço restante
-//     alert('Você atingiu o limite máximo de imagens (3).');
-//     return; // Impedindo a adição de mais imagens se exceder o limite
-//   }
-
-//   for (let i = 0; i < selectedImages.length; i++) {
-//     if (currentImageCount + i < maxImages) {
-//       // Verificando se ainda há espaço para adicionar novas imagens
-//       imageContainer.appendChild(selectedImages[i].imgElement);
-//     }
-//   }
-// }
-
-
-
-
-
-
-
-
-
-
-function displayImages() {
-  while (imageContainer.firstChild) {
-    imageContainer.removeChild(imageContainer.firstChild);
-  }
-
-  for (let i = 0; i < selectedImages.length; i++) { // Alteração: percorrendo o array de imagens selecionadas
-    imageContainer.appendChild(selectedImages[i].imgElement);
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 btnAvancar.addEventListener("click", async (evento) => {
@@ -443,6 +366,8 @@ btnAvancar.addEventListener("click", async (evento) => {
     }
   }
 });
+
+
 
 function store() {
   loader.classList.replace("d-none", "d-block");
@@ -481,7 +406,7 @@ function store() {
 
             uploadedCount++;
 
-             if (uploadedCount === selectedImages.length || uploadedCount === 3) {
+            if (uploadedCount === selectedImages.length || uploadedCount === 3) {
               loader.classList.replace("d-block", "d-none");
 
               if (window.location.href.includes("proteger6")) {
@@ -524,9 +449,8 @@ function store() {
 }
 
 
-
-
 // CADASTRANDO TODOS OS DADOS NO FIRESTORE
+
 async function cadastrarDados() {
   //Pegando os dados do localStorage para armazenar no banco
   let resultado = JSON.parse(localStorage.getItem("dadosEquipe"))
@@ -557,7 +481,6 @@ async function cadastrarDados() {
     console.error("Erro ao criar o documento: ", e);
   }
 
-  //getDados() // chamando função para atualizar lista de dados ao criar novo contato
 }
 
 
