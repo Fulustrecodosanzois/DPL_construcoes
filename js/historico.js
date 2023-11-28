@@ -302,7 +302,7 @@ function criarCardInformacaoHTML(data, ordemServico, timestamp) {
 
   categoriasImagens.forEach(categoria => {
       if (data[categoria]) {
-          imagensHTML += `<h5>${categoria.toUpperCase()}</h5>`;
+          imagensHTML += `<h5 class="fw-bolder">${categoria.toUpperCase()}</h5>`;
           data[categoria].forEach((imagem, index) => {
               imagensHTML += `
                   <div>
