@@ -342,6 +342,11 @@ function handleFileSelect(evt) {
   const remainingSlots = 3 - selectedImages.length;
   const filesToProcess = files.length > remainingSlots ? remainingSlots : files.length;
 
+  if (selectedImages.length >= 3) {
+    alert('Você atingiu o número máximo de imagens (3).');
+    return;
+  }
+
   for (let i = 0; i < filesToProcess; i++) {
     const file = files[i];
     const reader = new FileReader();
