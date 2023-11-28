@@ -339,6 +339,8 @@ function handleFileSelect(evt) {
     };
 
     reader.readAsDataURL(file);
+    // console.log(handleFileSelect)
+
   }
 }
 
