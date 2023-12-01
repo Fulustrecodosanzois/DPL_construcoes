@@ -105,22 +105,25 @@
       </div>
 
       <div class="form-switch bg-warning rounded-3 text-white py-2 mt-4">
-        <input class="form-check-input p-2 me-3 confirm2" type="checkbox" id="proteger62">
-        <label class="form-check-label fw-bold text-danger" for="proteger62"><small>ESTA ETAPA NÃO É NECESSÁRIA.</small></label>
+        <input class="form-check-input p-2 me-3 confirm2" type="checkbox" id="campoNaoNecessario">
+        <label class="form-check-label fw-bold text-danger" for="campoNaoNecessario"><small>ESTA ETAPA NÃO É NECESSÁRIA.</small></label>
       </div>
 
-      <div class="mt-5 mb-2">
-        <small class="">Insira o registro fotográfico abaixo.</small>
-      </div>
-
-      <div class="mb-3">
-        <label for="btnCamera" class="btn fundo_verde text-white mb-2">
-          Abrir Câmera &nbsp;
-          <i class="fa-solid fa-camera"></i>
-        </label>
-
-        <input class="form-control d-none proteger" type="file" id="btnCamera" multiple accept="image/*">
-      </div>
+       <!-- Essa área será ocultada quando o switch for marcado -->
+      <section class="d-block" id="areaCamera">
+        <div class="mt-5 mb-2">
+          <small class="">Insira o registro fotográfico abaixo.</small>
+        </div>
+  
+        <div class="mb-3">
+          <label for="btnCamera" class="btn fundo_verde text-white mb-2">
+            Abrir Câmera &nbsp;
+            <i class="fa-solid fa-camera"></i>
+          </label>
+  
+          <input class="form-control d-none proteger" type="file" id="btnCamera" multiple accept="image/*">
+        </div>
+      </section>
 
       <!-- loader -->
       <figure class="d-flex justify-content-center d-none" id="loader">
